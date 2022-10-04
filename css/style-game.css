@@ -56,7 +56,6 @@ li a{
     grid-area: content;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
 }
 .gaming-zone{
@@ -77,11 +76,23 @@ li a{
     justify-content: flex-start;
     font-size: 8px;
     margin-top: 5px;
+    margin-bottom: 3px;
 }
 p a{
     color: rgba(95, 91, 91, 1);
 }
 
+.game-nav{
+    display: flex;
+    margin-top: 2px;
+    justify-content: space-between;
+    color: rgba(146, 140, 140, 1);
+}
+
+.botones-gamenav{
+    display: flex;
+    height: 12px;
+}
 
 
 /* footer */
