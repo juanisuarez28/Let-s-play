@@ -61,15 +61,13 @@ li a{
 .gaming-zone{
     display: flex;
     flex-direction: column;
-    padding-top: 20px;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 5px;
     padding-bottom: 140%;
     background-color: rgba(61, 71, 105, 1);
 }
 .portada{
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
 }
 .breadcrumb{
     display: flex;
