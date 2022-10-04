@@ -1,0 +1,149 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+    
+}
+
+.contenedor{
+    display: grid;
+    grid-template-areas:"head"
+                        "content"
+                        "foot";
+    grid-template-rows:1fr 15fr 2fr;
+    background-color: rgba(30, 39, 69, 1);
+    font-size: 40%;
+}
+
+
+/*BARRA NAVEGADORA*/
+nav{
+    height: 50px;
+    background-color: rgba(9, 15, 35, 1);
+}
+
+.menu{
+    grid-area: head;
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    width: 70px;
+    margin-left: 5px;
+}
+
+.menu-hambur{
+    height: 20px;
+    width: 30px;
+    margin-right: 10px;
+}
+
+li a{
+    color: rgba(191, 180, 180, 1);
+    font-weight: bolder;
+    font-size: 8px;
+    margin: 7px;
+}
+
+/*content*/
+.game-box{
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.gaming-zone{
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 140%;
+    background-color: rgba(61, 71, 105, 1);
+}
+.portada{
+    height: 200px;
+    width: 200px;
+}
+.breadcrumb{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 8px;
+    margin-top: 5px;
+}
+p a{
+    color: rgba(95, 91, 91, 1);
+}
+
+
+
+/* footer */
+.footer{
+    grid-area: foot;
+    background-color: rgba(9, 15, 35, 1);
+}
+
+
+
+
+
+/* responsive */
+@media only screen and (min-width:400px){
+
+    .contenedor{
+        font-size: 50%;
+    }
+    nav, .menu{
+        height: 60px;
+    }
+    
+    .logo{
+        width: 70px;
+        margin-left: 5px;
+    }
+    
+    .menu-hambur{
+        height: 25px;
+        width: 35px;
+        margin-right: 10px;
+    }
+    
+    li a, p a{
+        font-size: 10px;
+    }
+}
+
+
+@media only screen and (min-width:900px){
+    .contenedor{
+        font-size: 70%;
+    }
+
+    li a, p a{
+        font-size: 15px;
+    }
+    
+    .logo{
+        height: 100px;
+        width: 100px;
+        margin-left: 5px;
+    }
+    
+    .menu-hambur{
+        height: 35px;
+        width: 40px;
+        margin-right: 10px;
+    }
+
+    nav, .menu{
+        height: 70px;
+    }
+    
+}
