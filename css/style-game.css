@@ -58,24 +58,29 @@ li a{
     flex-direction: column;
     align-items: center;
 }
+
 .gaming-zone{
     display: flex;
     flex-direction: column;
-    padding: 5px;
+    padding: 10px;
     padding-bottom: 140%;
     background-color: rgba(61, 71, 105, 1);
 }
+
 .portada{
-    height: 300px;
-    width: 300px;
+    height: 330px;
+    width: 330px;
 }
+
 .breadcrumb{
     display: flex;
-    justify-content: flex-start;
     font-size: 8px;
+    align-self: flex-start;
     margin-top: 5px;
     margin-bottom: 3px;
+    margin-left: 12px;
 }
+
 p a{
     color: rgba(95, 91, 91, 1);
 }
@@ -84,12 +89,16 @@ p a{
     display: flex;
     margin-top: 2px;
     justify-content: space-between;
-    color: rgba(146, 140, 140, 1);
+    color: rgba(241, 233, 233, 1);
+}
+
+.game-nav p{
+    font-size: 20px;
 }
 
 .botones-gamenav{
     display: flex;
-    height: 12px;
+    height: 20px;
 }
 
 
@@ -109,6 +118,7 @@ p a{
     .contenedor{
         font-size: 50%;
     }
+
     nav, .menu{
         height: 60px;
     }
@@ -127,11 +137,47 @@ p a{
     li a, p a{
         font-size: 10px;
     }
+
+    .portada{
+        height: 360px;
+        width: 370px;
+    }
+    .breadcrumb{
+        margin-left: 20px;
+    }
 }
 
+@media only screen and (min-width:600px){
+    .contenedor{
+        grid-template-rows:1fr 18fr 2fr;
+    }
+    
+    .portada{
+        height: 450px;
+        width:450px;
+    }
+
+    .gaming-zone{
+        padding-top: 15px;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-bottom: 140%;
+    }
+    .botones-gamenav{
+        height: 30px;
+    }
+    .game-nav p{
+        font-size: 30px;
+    }
+    .breadcrumb{
+        margin-left: 30px;
+    }
+}
 
 @media only screen and (min-width:900px){
+
     .contenedor{
+        grid-template-rows:1fr 25fr 2fr;
         font-size: 70%;
     }
 
@@ -154,5 +200,42 @@ p a{
     nav, .menu{
         height: 70px;
     }
-    
+
+    .portada{
+        height: 620px;
+        width:720px;
+    }
+     
+    .breadcrumb{
+        margin-bottom: 10px;
+        margin-left: 60px;
+    }
+}
+
+@media only screen and (min-width:1400px){
+    .contenedor{
+        grid-template-rows:1fr 38fr 2fr;
+    }
+    .portada{
+        height: 700px;
+        width:1040px;
+    }
+    .gaming-zone{
+        padding-top: 35px;
+        padding-left: 80px;
+        padding-right: 80px;
+        padding-bottom: 140%;
+    }
+    .botones-gamenav{
+        height: 40px;
+    }
+    .game-nav p{
+        font-size: 40px;
+    }
+    .breadcrumb{
+        margin-left: 120px;
+    }
+    .breadcrumb p a{
+        font-size:20px;
+    }
 }
