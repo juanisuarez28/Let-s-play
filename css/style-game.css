@@ -51,6 +51,9 @@ li a{
     margin: 7px;
 }
 
+
+
+
 /*content*/
 .game-box{
     grid-area: content;
@@ -88,6 +91,7 @@ p a{
 .game-nav{
     display: flex;
     margin-top: 2px;
+    width: 330px;
     justify-content: space-between;
     color: rgba(241, 233, 233, 1);
 }
@@ -100,6 +104,37 @@ p a{
     display: flex;
     height: 20px;
 }
+
+.info-box{
+
+    margin-top: 40px;
+    width: 330px;
+    color: rgba(241, 233, 233, 1);
+}
+
+.info-box h2{
+    font-size: 13px;
+}
+
+.info-box p{
+    font-size: 10px;
+    line-height: 15px;
+}
+
+.info-box img{
+    height: 150px;
+    width: 200px;
+    align-self: center;
+}
+
+.instrucciones{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+
 
 
 /* footer */
@@ -127,7 +162,11 @@ p a{
         width: 70px;
         margin-left: 5px;
     }
-    
+
+    .game-nav, .info-box{
+        width: 370px;
+    }
+
     .menu-hambur{
         height: 25px;
         width: 35px;
@@ -156,6 +195,9 @@ p a{
         height: 450px;
         width:450px;
     }
+    .game-nav, .info-box{
+        width: 450px;
+    }
 
     .gaming-zone{
         padding-top: 15px;
@@ -171,6 +213,13 @@ p a{
     }
     .breadcrumb{
         margin-left: 30px;
+    }
+    .info-box h2{
+        font-size: 20px;
+    }
+    
+    .info-box p{
+        font-size: 15px;
     }
 }
 
@@ -205,10 +254,20 @@ p a{
         height: 620px;
         width:720px;
     }
-     
+    .game-nav, .info-box{
+        width: 720px;
+    }
     .breadcrumb{
         margin-bottom: 10px;
         margin-left: 60px;
+    }
+    .info-box h2{
+        font-size: 25px;
+    }
+    
+    .info-box p{
+        font-size: 20px;
+        line-height: 25px;
     }
 }
 
@@ -219,6 +278,9 @@ p a{
     .portada{
         height: 700px;
         width:1040px;
+    }
+    .game-nav, .info-box{
+        width: 1040px;
     }
     .gaming-zone{
         padding-top: 35px;
