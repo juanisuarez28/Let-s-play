@@ -18,7 +18,7 @@
     grid-template-rows: 1fr 15fr 2fr;
     background-color: rgba(67, 28, 23, 1);
     font-size: 40%;
-    max-width: 2000px;
+    max-width: auto;
     
     overflow: hidden;
 }
@@ -91,7 +91,8 @@ li a{
     background-size: auto;
     background-position: left;
     height: 1500px;
-   
+    display: flex;
+    flex-direction: column;
 }
 
 .shadow + section{
@@ -112,6 +113,7 @@ li a{
     height: auto;
     background-color: black;
     box-shadow: 0 0 100px 100px;
+    z-index: 5;
 }
 
 
@@ -179,16 +181,32 @@ li a{
     display: block;
 }
 
-.doomTitle img{
-    padding-left: 70%;
-    align-self: flex-end;
+.doomguyImage{
+    position: absolute;
+    top: 3%;
+    left: 50%;
     height: auto;
-    width: auto;
+    width: 60%;
     display: block;
-    
+    z-index: 3;
+    object-fit: cover;
 }
 
+.doomTitle .titleImage{
+    position: absolute;
+    top: 10%;
+    left: 2%;
+    align-self: center;
+    justify-self: flex-start;
+    max-width: 70%;
+    max-height: 50%;
+    display: block;
+    z-index: 2;
+}
 
+.doomTitle h1{
+    font-size: 500%;
+}
 
 
 
@@ -203,7 +221,7 @@ li a{
 @media only screen and (min-width:400px){
 
     .contenedor{
-        grid-template-rows:0.2fr 18fr 2fr;
+        grid-template-rows:1fr 18fr 2fr;
     }
     nav, .menu{
         height: 60px;
@@ -276,7 +294,7 @@ li a{
 
 @media only screen and (min-width:1400px){
     .contenedor{
-        grid-template-rows:2fr 38fr 2fr;
+        grid-template-rows:2fr 38fr 4fr;
     }
  
  
@@ -284,3 +302,4 @@ li a{
 
 
 }
+
