@@ -81,6 +81,7 @@ li a{
     width: 40%;
     z-index: 2;
     object-fit: cover;
+    filter: drop-shadow(6px -6px 7px rgba(144, 210, 2, 0.5));
 }
 
 .titleImage{
@@ -91,6 +92,7 @@ li a{
     max-height: auto;
     margin-left: 7%;
     z-index: 1;
+    filter: drop-shadow(6px -6px 10px rgba(194, 237, 24, 0.5));
 }
 
 .environment h1{
@@ -155,6 +157,7 @@ li a{
     width: 20%;
     display: block;
     z-index: 10;
+    filter: drop-shadow(6px -6px 30px rgba(63, 63, 61, 0.664));
 }
 
 /*CONTENIDO, PERSONAJES*/
