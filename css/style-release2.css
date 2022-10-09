@@ -166,7 +166,24 @@ li a{
     font-size: 50%;
 }
 
+.seccion-personajes .slider-container{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    height: 20vh;
+    overflow-x: scroll;
+    align-self: center;
+    scroll-snap-type: x mandatory;
+}
 
+.slider-item{
+    flex: 0 0 30%;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    scroll-snap-align: center;
+    margin-right: 5%;
+}
 
 
 /*CONTENIDO, FEATURES*/
