@@ -120,6 +120,8 @@
     }
   }
 
+
+  /*contenido*/
 .contenedor{
     display: grid;
     grid-template-areas:"head"
@@ -280,6 +282,8 @@ li a{
     margin-left: 90%;
 }
 
+
+
 /* carruseles */
 .carruseles, .carrusel{
     grid-area: content2;
@@ -317,7 +321,7 @@ li a{
 }
 
 ::-webkit-scrollbar {
-    display: none;
+
 }
 
 
