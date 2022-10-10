@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style-release2.css">
 </head>
+
 <body>
     <div class="contenedor"> </div>
     <nav>
@@ -25,33 +27,37 @@
         </ul>
     </nav>
     <div class="environment">
-        <div>                        <!-- ENCABEZADO -->
+        <div>
+            <!-- ENCABEZADO -->
             <h1>EL RELANZAMIENTO</h1>
             <h1>MAS ESPERADO</h1>
             <img src="img/title-image.png" class="titleImage" alt="Imagen d" class="img">
         </div>
         <img src="img/doomguy.png" class="doomguyImage" alt="Imagen c" class="img">
-       
+
     </div>
     <a class="boton" href="" target="_blank">ordenar preventa</a>
-    <div class="shadow"></div>     <!-- SOMBREADO -->
+    <div class="shadow"></div> <!-- SOMBREADO -->
 
-    <div class="environment">          <!-- CONTENIDO -->
+    <div class="environment">
+        <!-- CONTENIDO -->
         <h1>MUY PRONTO</h1>
-        <div class = "contenido">
+        <div class="contenido">
 
-            <div>                     <!-- CABECERA -->
+            <div>
+                <!-- CABECERA -->
                 <h2>UNA NUEVA ACTUALIZACION</h2>
                 <h2>QUE CAMBIARA PARA SIEMPRE LA EXPERIENCIA EN DOOM</h2>
-                <div class = "facilitadores">
-                    <img href="" class="btn" src="img/btn-lft.png" alt="">
-                    <img href="" class="btn" src="img/btn-rgt.png" alt="">
+                <div class="facilitadores">
+                    <a href="#personajes"><img  class="btn" src="img/btn-lft.png" alt=""></a>
+                    <a href="#features"><img  class="btn" src="img/btn-rgt.png" alt=""></a>
                 </div>
             </div>
 
-            <div class="seccion-personajes">                      <!-- PERSONAJES -->
+            <div class="seccion-personajes">
+                <!-- PERSONAJES -->
                 <h1>PERSONAJES</h1>
-                <div class="slider-container">
+                <div class="slider-container" id="personajes">
                     <img src="img/card-doomguy.png" class="slider-item" alt="">
                     <img src="img/card-phobos.png" class="slider-item" alt="">
                     <img src="img/card-crash.png" class="slider-item" alt="">
@@ -59,13 +65,22 @@
                 </div>
             </div>
 
-            <div class="seccion-features">                       <!-- FEATURES -->
+            <div class="seccion-features" id="features">
+                <!-- FEATURES -->
                 <h1>FEATURES</h1>
-                <img src="img/feature1.png" alt="">
+                <div>
+                    <img id="slide1" src="img/feature1.png" alt="">
+                <!--    <div class="textFeature"><p id="slide1">Mapas para modo multijugador</p></div>     no funca       -->
+                    <img id="slide2" src="img/feature2.png" alt="">
+                <!--    <div class="textFeature"><p id="slide2">Juega y aporta mods para la comunidad</p></div>  -->
+                    <img id="slide3" src="img/feature3.png" alt="">
+                <!--     <div class="textFeature"><p id="slide3">Notables mejoras graficas</p></div>              -->
+                </div>
+
                 <div class="feature-items">
-                    <img src="img/feature1.png" alt="">
-                    <img src="img/feature2.png" alt="">
-                    <img src="img/feature3.png" alt="">
+                    <a href="#slide1"><img src="img/feature1.png" alt=""></a>
+                    <a href="#slide2"><img src="img/feature2.png" alt=""></a>
+                    <a href="#slide3"><img src="img/feature3.png" alt=""></a>
                 </div>
             </div>
         </div>
@@ -73,48 +88,49 @@
     </div>
 
     <footer class="footer">
-        
-            <div class="logoFooter">
-                    <a href="index.html"><img href="index.html" src="img/logo.png" alt=""></a>
-            </div>
-            <div class="columnaTienda">
-                    <li class="footer-list">
-                        <a href="index.html">Tienda</a>
-                        <a href="index.html">Nuevas ofertas</a>
-                        <a href="">Lo mas vendido</a>
-                        <a href="">A menos de 100 pesos</a>
-                        <a href="">Actualizados</a>
-                    </li>
-            </div>
-            <div class="columnaCategoria">
-                <li class="footer-list">
-                    <a href="">Categorias</a>
-                    <a href="">Recomendados</a>
-                    <a href="">Gratis</a>
-                    <a href="">Accion</a>
-                    <a href="">Aventuras</a>
-                    <a href="">Deportes</a>
-                    <a href="">Simulacion</a>
-                    <a href="">Estrategia</a>
+
+        <div class="logoFooter">
+            <a href="index.html"><img href="index.html" src="img/logo.png" alt=""></a>
+        </div>
+        <div class="columnaTienda">
+            <li class="footer-list">
+                <a href="index.html">Tienda</a>
+                <a href="index.html">Nuevas ofertas</a>
+                <a href="">Lo mas vendido</a>
+                <a href="">A menos de 100 pesos</a>
+                <a href="">Actualizados</a>
+            </li>
+        </div>
+        <div class="columnaCategoria">
+            <li class="footer-list">
+                <a href="">Categorias</a>
+                <a href="">Recomendados</a>
+                <a href="">Gratis</a>
+                <a href="">Accion</a>
+                <a href="">Aventuras</a>
+                <a href="">Deportes</a>
+                <a href="">Simulacion</a>
+                <a href="">Estrategia</a>
+            </li>
+        </div>
+        <div class="columnaNosotros">
+            <li class="footer-list">
+                <a href="">Nosotros</a>
+                <a href="">Quienes somos?</a>
+                <a href="">Contacto</a>
+                <a href="">Foros</a>
+            </li>
+        </div>
+        <div class="columnaFinal">
+            <div>
+                <li>
+                    <a href="">Terminos de servicio</a>
+                    <a href="">Politica de privacidad</a>
+                    <a href="">Politica de reembolso</a>
                 </li>
             </div>
-            <div class="columnaNosotros">
-                <li class="footer-list">
-                    <a href="">Nosotros</a>
-                    <a href="">Quienes somos?</a>
-                    <a href="">Contacto</a>
-                    <a href="">Foros</a>
-                </li>
-            </div>
-            <div class="columnaFinal">
-                <div>
-                    <li>
-                        <a href="">Terminos de servicio</a>
-                        <a href="">Politica de privacidad</a>
-                        <a href="">Politica de reembolso</a>
-                    </li>
-                </div>
-            </div>      
+        </div>
     </footer>
 </body>
+
 </html>
