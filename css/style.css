@@ -11,12 +11,13 @@
 .contenedor{
     display: grid;
     grid-template-areas:"head"
-                        "content"
-                        "content"
-                        "content"
-                        "content"
+                        "title"
+                        "content1"
+                        "content2"
+                        "content2"
+                        "content2"
                         "foot";
-    grid-template-rows: 1fr 7fr 4fr 4fr 4fr 2fr;
+    grid-template-rows: 1.5fr 0.6fr 4fr 4fr 4fr 4fr 2fr;
     background-color: rgba(30, 39, 69, 1);
     font-size: 40%;
 }
@@ -55,9 +56,121 @@ li a{
 }
 
 
+/* carrusel main */
+.title{
+    grid-area: title;
+    padding-left: 10%;
+    
+}
+.carruselMain{
+    grid-area: content1;
+    height: 160px;
+    overflow: hidden;
+}
+.itemCarrusel{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+}
+
+.tarjetaCarrusel{
+    display: flex;
+    width: 80%;
+    height: 100%;
+    background-color: rgba(61, 71, 105, 1);
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+.imagenPrincipal{
+    width:65%;
+}
+
+.imagenPrincipal img{
+    width:97%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.miniFotosCarrusel{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 35%;
+    margin-right: 2%;
+}
+
+.miniFotosCarrusel .filaCuadrado1, .miniFotosCarrusel .filaCuadrado2{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.filaCuadrado1 img, .filaCuadrado2 img{
+    width: 97%;
+    height: 48%;
+    object-fit: cover;
+}
+
+.miniFotosCarrusel h1{
+    padding: 5%;
+    color: rgba(241, 233, 233, 1);
+}
+
+.cuadradoImagenes{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.botonesTarjeta{
+    display: flex;
+    justify-content: space-between;
+    padding: 5%;
+}
+
+.botonesTarjeta h1{
+    color: rgba(241, 233, 233, 1);
+}
+
+.botonesTarjeta .btnJugar{
+    width: 50%;
+    border-radius: 5%;
+    padding: 5%;
+    background-color: rgba(93, 178, 112, 1);
+}
+
+.flechasCarrusel{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.flechasCarrusel a{
+    display: flex;
+    
+}
+.flechaI, .flechaD{
+    width: 10%;
+}
+.flechaD{
+    margin-left: 90%;
+}
+
 /* carruseles */
 .carruseles, .carrusel{
-    grid-area: content;
+    grid-area: content2;
     display: flex;
     align-items: center;
     flex-direction: column;
