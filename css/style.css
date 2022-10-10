@@ -64,7 +64,7 @@ li a{
 }
 .carruselMain{
     grid-area: content1;
-    height: 160px;
+    height: 220px;
     overflow: hidden;
 }
 .itemCarrusel{
@@ -78,7 +78,7 @@ li a{
 
 .tarjetaCarrusel{
     display: flex;
-    width: 80%;
+    width: 90%;
     height: 100%;
     background-color: rgba(61, 71, 105, 1);
     justify-content: space-between;
@@ -143,7 +143,7 @@ li a{
 .botonesTarjeta .btnJugar{
     width: 50%;
     border-radius: 5%;
-    padding: 5%;
+    padding: 3%;
     background-color: rgba(93, 178, 112, 1);
 }
 
@@ -154,9 +154,9 @@ li a{
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    
+    justify-content: space-around;  
 }
+
 .flechasCarrusel a{
     display: flex;
     
@@ -271,7 +271,26 @@ li a{
     li a{
         font-size: 10px;
     }
+
+    .carruselMain{
+        margin-bottom: 15px;
+    }
     
+}
+
+
+@media only screen and (min-width:600px){
+    .carruselMain{
+        height: 260px;
+        margin-bottom: 15px;
+    }
+
+    .tarjetaCarrusel{
+        width: 80%;
+    }
+    .flechasCarrusel{
+        width: 105%;
+    }
 }
 
 
@@ -304,9 +323,97 @@ li a{
     
     /* content */
     .carrusel{
-        width: 80%;
+        width: 70%;
         height: 100%;
         margin-bottom: 20px;
     }
+
+    .carruselMain{
+        height: 300px;
+    }
+
+    .tarjetaCarrusel{
+        width: 70%;
+    }
+    .title{
+        padding-left: 15%;
+    }
+
+    .botonesTarjeta .btnJugar{
+        width: 40%;
+    }
+
+    .btnJugar p{
+        font-size: 110%;
+    }
     
+}
+
+@media only screen and (min-width:1100px){
+    .carruselMain{
+        height: 350px;
+    }
+
+    .botonesTarjeta .btnJugar{
+        width: 35%;
+    }
+
+    .btnJugar p{
+        font-size: 120%;
+    }
+
+}
+
+@media only screen and (min-width:1400px){
+    .contenedor{
+        display: grid;
+        grid-template-areas:"head"
+                            "title"
+                            "content1"
+                            "content2"
+                            "content2"
+                            "content2"
+                            "foot";
+        grid-template-rows: 1fr 0.5fr 4fr 4fr 4fr 4fr 2fr;
+        background-color: rgba(30, 39, 69, 1);
+    }
+    
+    .carruselMain{
+        height: 400px;
+        margin-bottom: 30px;
+    }
+
+    .flechasCarrusel{
+        width: 110%;
+    }
+
+    .botonesTarjeta .btnJugar{
+        width: 30%;
+    }
+
+    .btnJugar p{
+        font-size: 130%;
+    }
+}
+
+@media only screen and (min-width:1600px){
+    .contenedor{
+        font-size: 80%;
+    }
+
+    .carruselMain{
+        height: 450px;
+    }
+
+    .flechasCarrusel{
+        width: 115%;
+    }
+
+    .botonesTarjeta .btnJugar{
+        width: 25%;
+    }
+
+    .btnJugar p{
+        font-size: 140%;
+    }
 }
