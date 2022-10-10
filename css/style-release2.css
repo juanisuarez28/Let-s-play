@@ -8,6 +8,9 @@
     
 }
 
+body{
+    background-color: rgb(32, 30, 30);
+}
 
 .contenedor{
     display: flex;
@@ -50,6 +53,9 @@ li a{
     font-weight: bolder;
     font-size: 90%;
     margin-right: 15%;
+}
+li a:hover{
+    text-decoration: underline;
 }
 
 
@@ -141,7 +147,7 @@ li a{
 .contenido h2{
     align-self: center;
     text-align: center;
-    font-size: 300%;
+    font-size: 400%;
     color: rgba(191, 180, 180, 1);
     margin-top: 10%;
 }
@@ -159,12 +165,49 @@ li a{
     display: block;
     z-index: 10;
     filter: drop-shadow(6px -6px 30px rgba(63, 63, 61, 0.664));
+    transition: all 1s ease;
 }
 
-/*CONTENIDO, PERSONAJES*/
+.btn:hover{
+    filter: drop-shadow(6px -6px 30px rgba(193, 193, 144, 0.664));
+}
+
+
+.boton {
+    border: 1% solid rgb(93, 178, 112);
+    padding: 1% 2% 1% 2%;
+    background-color: rgb(93, 178, 112); 
+    color: #0d091f; 
+    text-transform:capitalize; 
+    font-family: 'Helvetica', sans-serif; 
+    font-size: 100%;
+    border-radius: 20%;
+    height: 10%;
+    width: 10%;
+    position: relative;
+    margin-left: 75%;
+    z-index: 15;
+    transition: all 1s ease;
+    filter: drop-shadow(2px -6px 20px rgba(144, 210, 2, 0.5));
+    }
+
+    .boton:hover {
+        background: rgb(193, 226, 200);
+        color: #0d091f ; 
+        filter: drop-shadow(2px -6px 15px rgba(155, 248, 167, 0.715));
+      }
+
+
+
+/*CONTENIDO, PERSONAJES*/   
 
 .seccion-personajes{
     font-size: 50%;
+}
+
+.contenido h1{
+    align-self: flex-start;
+    padding-left: 10%;
 }
 
 .seccion-personajes .slider-container{
@@ -175,6 +218,7 @@ li a{
     overflow-x: scroll;
     align-self: center;
     scroll-snap-type: x mandatory;
+    margin-top: 2%;
 }
 
 .slider-item{
@@ -191,16 +235,44 @@ li a{
     width: 1%;
 }
 
+
 /*CONTENIDO, FEATURES*/
 
 
 .seccion-features{
     font-size: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-bottom: 10%;
 }
 
+
+
+.seccion-features img{
+ 
+    width: 70%;
+    align-self: center;
+    margin-top: 2%;
+}
+
+.seccion-features .feature-items{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    margin-left: 2%;
+    margin-top: 0%;
+    align-items: flex-start;
+}
+
+.feature-items img{
+    display: block;
+    width: 22%;
+    margin-right: 2%;
+    transition: all 1s ease;
+}
+.feature-items img:hover{
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5%;
+}
 
 
 
@@ -216,12 +288,82 @@ li a{
 
 /*FOOTER*/
 .footer{
-    display: flex;
-    background-color:  rgba(67, 28, 23, 1);
-    height: 300px;
+    display: grid;
+    grid-template-areas:'logoFooter columnaTienda columnaCategoria columnaNosotros columnaFinal';       
+    grid-template-columns: 13% 18%  18% 18% 33%;
+    background-color:  rgba(34, 30, 19, 1);
 }
 
 
+.logoFooter{
+    grid-area: logoFooter ;
+    display: flex;
+    justify-content: center;
+}
+.logoFooter img{
+    width: 100%;
+}
+
+
+
+.columnaTienda{
+    grid-area: columnaTienda;
+    display: contents;
+}
+.columnaCategoria{
+    grid-area: columnaCategoria;
+    display: contents;
+}
+.columnaNosotros{
+    grid-area: columnaNosotros;
+    display: contents;
+}
+.columnaFinal{
+    grid-area: columnaFinal;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.columnaFinal>div{
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.columnaFinal>div li{
+    font-size: 10%;
+    justify-self: center;
+}
+.columnaFinal>div li a{
+    margin: 1%;
+}
+.columnaFinal>div li a:hover{
+    background-color: rgba(191, 180, 180, 1);
+    color: #0d091f;
+}
+
+
+.footer-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    justify-content: center;
+}
+
+.footer-list>a:first-child{
+    font-size: 100%;
+    text-decoration: underline;
+}
+
+.footer-list a{
+    font-size: 70%;
+    transition: all 1s ease;
+}
+.footer-list a:hover{
+    font-size: 100%;
+    text-decoration:dotted ;
+}
 
 
 /* responsive */
@@ -254,7 +396,23 @@ li a{
         max-width: 50%;
     }
 
+    .boton{
+        font-size: 15%;
+        margin-left: 65%;
+    }
 
+    .seccion-personajes .slider-container{
+        height: 10vh;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    .footer-list{
+        font-size: 10%;
+    }
 }
 
 @media only screen and (max-width:570px){
@@ -279,4 +437,26 @@ li a{
     .environment h1{
         font-size: 300%;
     }
+
+    .boton{
+        font-size: 50%;
+    }
+
+    .slider-item{
+        width: 60%;
+    }
+
+    .seccion-personajes .slider-container{
+        height: 25vh;
+    }
+    
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    .footer-list{
+        font-size: 20%;
+    }
+
+  
 }
