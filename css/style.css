@@ -285,9 +285,9 @@ li a{
 /* carruseles */
 
 .carrusel{
-    margin-top: 10%;
+    margin-top: 20%;
     width: 90%;
-    height: 100px;
+    height: 160px;
     justify-self: center;
     overflow: hidden;
     position: relative;
@@ -295,19 +295,18 @@ li a{
 }
 
 .cards{
-    width: 250%;
+    width: 400%;
     height: 100%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-content: center;
-    transition: all .5s ease;
-    transform: translateX(-0%);
-    
+    transition: all .2s ease;
+    transform: translateX(0%);
 }
 
 .card{
-    width: calc(100%/5);
+    width: calc(100%/8);
     height: 100%;
     display: flex;
     flex-direction: column;
