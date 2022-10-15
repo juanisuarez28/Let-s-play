@@ -202,35 +202,40 @@ li a:hover{
 
 
 
-/*CONTENIDO, PERSONAJES*/   
+/*CONTENIDO, PERSONAJES*/
 
-.seccion-personajes{
+.seccion-personajes {
     font-size: 50%;
 }
 
-.contenido h1{
+.contenido h1 {
     align-self: flex-start;
     padding-left: 10%;
 }
 
-.seccion-personajes .slider-container{
+.seccion-personajes .slider-container {
     display: flex;
     flex-direction: row;
     width: 70%;
-    height: 50vh;
+    height: 40vh;
     overflow-x: scroll;
     align-self: center;
     scroll-snap-type: x mandatory;
     margin-top: 2%;
 }
 
-.slider-item{
+.slider-container figure {
     flex: 0 0 30%;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
     scroll-snap-align: center;
     margin-right: 5%;
+}
+
+figure img {
+
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+
 }
 
 
@@ -506,4 +511,19 @@ a img:hover{
     }
 
   
+}
+
+
+@media only screen and (max-width:912px) {
+        figure img {
+        width: auto;
+        height: 50%;
+        object-fit: contain;
+    }
+    
+   .seccion-features {
+    width: 50%
+        justify-self:center;
+    } 
+    
 }
