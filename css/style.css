@@ -337,7 +337,7 @@ li a{
     color: rgba(241, 233, 233, 1);
 }
 
-.pieCardOferta h2{
+ .pieCardOferta h2{
     color: rgba(241, 233, 233, 1);
     position: absolute;
     bottom: 20%;
@@ -345,12 +345,9 @@ li a{
     width: 10.5%;
 }
 
-.box-oferta{
+/* .box-oferta{
     background-color:rgba(56, 154, 212, 1) ;
     height: 20%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
 }
 
 .porcentajeOferta{
@@ -382,7 +379,7 @@ li a{
 .precioOferta .ahora{
     color: rgba(157, 199, 166, 1);
     align-self: flex-end;
-}
+} */
 
 
 .carrusel button{
