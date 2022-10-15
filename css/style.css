@@ -122,15 +122,8 @@
 
   /*contenido*/
 .contenedor{
-    display: grid;
-    grid-template-areas:"head"
-                        "title"
-                        "content1"
-                        "content2"
-                        "content2"
-                        "content2"
-                        "foot";
-    grid-template-rows: 1fr 0.4fr 3fr 4fr 4fr 4fr 2fr;
+    display: flex;
+    flex-direction: column;
     background-color: rgba(30, 39, 69, 1);
     font-size: 40%;
 }
@@ -140,6 +133,7 @@
 nav{
     height: 50px;
     background-color: rgba(9, 15, 35, 1);
+    margin-bottom: 5%;
 }
 
 .menu{
@@ -259,6 +253,13 @@ li a{
     border-radius: 5%;
     padding: 3%;
     background-color: rgba(93, 178, 112, 1);
+    z-index: 20;
+}
+
+.botonesTarjeta .btnJugar a{
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
 }
 
 .flechasCarrusel{
@@ -290,6 +291,7 @@ li a{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 10%;
 }
 .carrusel{
     margin-top: 20%;
@@ -412,8 +414,54 @@ li a{
 
 /* footer */
 .footer{
-    grid-area: foot;
+    display: grid;
+    grid-template-areas:'logoFooter columnaTienda columnaCategoria columnaNosotros columnaFinal';       
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     background-color: rgba(9, 15, 35, 1);
+}
+
+
+
+.columnaTienda ul li, .columnaNosotros ul li, .columnaCategoria ul li{
+    color:rgba(241, 233, 233, 1) ;
+    margin-top: 5%;
+
+}
+.columnaTienda{
+    grid-area: columnaTienda;
+}
+
+.columnaCategoria{
+    grid-area: columnaCategoria;
+}
+
+.columnaNosotros{
+    grid-area: columnaNosotros;
+}
+
+.columnaRedes{
+    grid-area: columnaFinal;
+
+}
+.footer div{
+    margin-top: 15%;
+}
+
+.logoFooter{
+    grid-area: logoFooter;
+
+}
+
+.columnaRedes ul{
+    margin-top: 5%;
+}
+div .columnaRedes ul li img{
+    width: 20%;
+}
+
+
+.logoFooter img{
+    width: 100%;
 }
 
 
@@ -428,6 +476,7 @@ li a{
     }
     nav, .menu{
         height: 60px;
+        margin-bottom: 3%;
     }
     
     .logo{
@@ -447,7 +496,7 @@ li a{
     }
 
     .carruselMain{
-        margin-bottom: 15px;
+        margin-bottom: 3%;
     }
     
     .carrusel{        
@@ -557,9 +606,9 @@ li a{
 
 @media only screen and (min-width:1100px){
     .contenedor{
-        grid-template-rows: 1fr 0.4fr 3fr 4fr 5fr 5fr 2fr;
+        grid-template-rows: 0.5fr 0.3fr 2fr 3fr 3fr 1fr 1fr;
+        background-color: rgba(30, 39, 69, 1);
     }
-    
     .carruselMain{
         height: 350px;
     }
@@ -580,7 +629,7 @@ li a{
 
 @media only screen and (min-width:1400px){
     .contenedor{
-        grid-template-rows: 1fr 0.5fr 4fr 5fr 5fr 5fr 2fr;
+        grid-template-rows: 0.5fr 0.3fr 2fr 2fr 3fr 3fr 2fr;
         background-color: rgba(30, 39, 69, 1);
     }
     

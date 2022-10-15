@@ -349,84 +349,53 @@ a img:hover{
 .footer{
     display: grid;
     grid-template-areas:'logoFooter columnaTienda columnaCategoria columnaNosotros columnaFinal';       
-    grid-template-columns: 13% 18%  18% 18% 33%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     background-color:  rgba(34, 30, 19, 1);
 }
 
 
-.logoFooter{
-    grid-area: logoFooter ;
-    display: flex;
-    justify-content: center;
+
+.columnaTienda ul li, .columnaNosotros ul li, .columnaCategoria ul li{
+    color:rgba(241, 233, 233, 1) ;
+    margin-top: 5%;
+
 }
+.columnaTienda{
+    grid-area: columnaTienda;
+}
+
+.columnaCategoria{
+    grid-area: columnaCategoria;
+}
+
+.columnaNosotros{
+    grid-area: columnaNosotros;
+}
+
+.columnaRedes{
+    grid-area: columnaFinal;
+
+}
+.footer div{
+    margin-top: 15%;
+}
+
+.logoFooter{
+    grid-area: logoFooter;
+
+}
+
+.columnaRedes ul{
+    margin-top: 5%;
+}
+.columnaRedes ul li img{
+    width: 20%;
+}
+
+
 .logoFooter img{
     width: 100%;
 }
-
-
-
-.columnaTienda{
-    grid-area: columnaTienda;
-    display: contents;
-}
-.columnaCategoria{
-    grid-area: columnaCategoria;
-    display: contents;
-}
-.columnaNosotros{
-    grid-area: columnaNosotros;
-    display: contents;
-}
-.columnaFinal{
-    grid-area: columnaFinal;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.columnaFinal>div{
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: nowrap;
-}
-
-.columnaFinal>div li{
-    font-size: 10%;
-    justify-self: center;
-}
-.columnaFinal>div li a{
-    margin: 1%;
-}
-.columnaFinal>div li a:hover{
-    background-color: rgba(191, 180, 180, 1);
-    color: #0d091f;
-}
-
-
-.footer-list{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    justify-content: center;
-}
-
-.footer-list>a:first-child{
-    font-size: 100%;
-    text-decoration: underline;
-}
-
-.footer-list a{
-    font-size: 70%;
-    transition: all 1s ease;
-}
-.footer-list a:hover{
-    font-size: 100%;
-    text-decoration:dotted ;
-}
-
-
-
-
 
 
 
