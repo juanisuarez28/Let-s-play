@@ -322,13 +322,68 @@ li a{
     margin-right: 1%;
 }
 
+
 .card img{
+    width: 100%;
+    height: 85%;
+}
+
+#oferta img{
     width: 100%;
     height: 80%;
 }
+
 .card h2{
     color: rgba(241, 233, 233, 1);
 }
+
+.pieCardOferta h2{
+    color: rgba(241, 233, 233, 1);
+    position: absolute;
+    bottom: 20%;
+    background-color:rgba(10, 10, 12, 0.5);
+    width: 10.5%;
+}
+
+.box-oferta{
+    background-color:rgba(56, 154, 212, 1) ;
+    height: 20%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.porcentajeOferta{
+    background-color: rgba(93, 178, 112, 1);
+    height: 60%;
+    padding-left: 2%;
+    padding-right: 2%;
+    display: flex;
+    align-items: center;
+}
+
+.porcentajeOferta h2{
+    color: rgba(212, 222, 214, 1);
+}
+
+.precioOferta{
+    display: flex;
+    background-color: rgba(5, 75, 117, 1);
+    height: 60%;
+    width: 45%;
+    justify-content: space-between;
+}
+
+.precioOferta .antes{
+    text-decoration-line: line-through;
+    color: rgba(191, 180, 180, 1);
+}
+
+.precioOferta .ahora{
+    color: rgba(157, 199, 166, 1);
+    align-self: flex-end;
+}
+
 
 .carrusel button{
     color: rgba(241, 233, 233, 1);
