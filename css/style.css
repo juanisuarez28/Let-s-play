@@ -9,7 +9,7 @@
 
 
 /*loader*/
-.loader{
+/* .loader{
     width: 100%;
     height: 100vh;
     position: fixed;
@@ -117,7 +117,7 @@
     100% {
       transform: rotate(360deg);
     }
-  }
+  } */
 
 
   /*contenido*/
@@ -160,6 +160,35 @@ li a{
     font-weight: bolder;
     font-size: 8px;
     margin: 7px;
+}
+
+/* menu hamburguesa */
+.menu-hamburguesa{
+    background-color: rgba(61, 71, 105, 1);
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.opciones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin-top: 2%;
+    padding-bottom: 5%;
+    border-bottom: 2px solid rgba(241, 233, 233, 1);
+}
+.menu-hamburguesa .opciones h1{
+    color: rgba(241, 233, 233, 1);
+    font-size: 15px;
+    margin-top: 8%;
+}
+
+.redesIcons{
+    width: 100%;
 }
 
 
