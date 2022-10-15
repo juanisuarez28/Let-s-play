@@ -173,6 +173,7 @@ li a:hover{
 
 .facilitadores img:hover{
     filter: drop-shadow(6px -6px 30px rgba(193, 193, 144, 0.664));
+     transform: scale(1.5);
 }
 
 
@@ -190,14 +191,17 @@ li a:hover{
     position: relative;
     margin-left: 75%;
     z-index: 15;
-    transition: all 1s ease;
     filter: drop-shadow(2px -6px 20px rgba(144, 210, 2, 0.5));
+    transition: all 1s ease;
+    
     }
 
     .boton:hover {
+        
         background: rgb(193, 226, 200);
         color: #0d091f ; 
         filter: drop-shadow(2px -6px 15px rgba(155, 248, 167, 0.715));
+       
       }
 
 
@@ -217,25 +221,56 @@ li a:hover{
     display: flex;
     flex-direction: row;
     width: 70%;
-    height: 40vh;
+    height: 45vh;
     overflow-x: scroll;
+    overflow-y: hidden;
     align-self: center;
     scroll-snap-type: x mandatory;
-    margin-top: 2%;
 }
 
 .slider-container figure {
+    display: flex;
     flex: 0 0 30%;
     scroll-snap-align: center;
     margin-right: 5%;
+    position: relative;
+    justify-content: center;
+    
 }
 
 figure img {
 
     width: auto;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+   
+}
 
+figure .descripcion{
+    opacity: 0;
+    position: absolute;
+    height: 100%;
+    width: 80%;
+    flex-direction: column;
+    justify-content: space-around;
+    background: rgba(40,40,40,0.5);
+    border-radius: 20%;
+    transition: all 1s ease;
+}
+
+.descripcion p{
+        font-size: 300%;
+        color: bisque;
+        bottom:10%;
+}
+.descripcion h2{
+        font-size: 800%;
+        color: bisque;
+        bottom:10%;
+}
+
+.slider-container .descripcion:hover {
+    opacity: 1;
 }
 
 
@@ -248,7 +283,7 @@ figure img {
 
 .seccion-features{
     font-size: 50%;
-    margin-bottom: 10%;
+   margin-bottom: 10%;
     position: relative;
 }
 
@@ -278,37 +313,6 @@ figure img {
     opacity: 1;
 }
 
-/*  FEATURE MAIN SCREEN TEXT   (NO FUNCIONA)*/    
-
-.seccion-features .textFeature{
-    border-radius: 20%;
-    opacity: 0;
-    display: flex;
-    transition: opacity 1s;
-    position: absolute;
-    width: 50%;
-    height: 10%;
-    align-self: center;
-    justify-items: center;
-    margin-top: 5%;
-    background-color: #0d091f;
-}
-.seccion-features .textFeature:first-child{
-    opacity: 1;
-    position: relative;
-}
-.seccion-features .textFeature:target{
-    opacity: 1;
-}
-.seccion-features p{
-    font-size: 700%;
-    color: rgba(191, 180, 180, 1);
-    font-weight: bold;
-    width: 70%;
-    align-self: center;
-    justify-self: flex-end;
-    margin-top: 2%;
-}
 
 
 /*  FEATURE ITEMS SELECTOR   */
@@ -339,6 +343,7 @@ a img{
 a img:hover{
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 5%;
+    transform: scale(1.1);
 }
 
 
@@ -510,16 +515,19 @@ a img:hover{
         font-size: 20%;
     }
 
+    
   
 }
 
 
 @media only screen and (max-width:912px) {
-        figure img {
+        figure {
         width: auto;
         height: 50%;
         object-fit: contain;
     }
+    
+    
     
    .seccion-features {
     width: 50%
