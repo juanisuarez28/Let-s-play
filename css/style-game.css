@@ -48,6 +48,47 @@ li a{
     margin: 7px;
 }
 
+/* menu hamburguesa */
+input{
+    display: none;
+}
+
+input:checked ~ .menu-hamburguesa{
+    display: flex;
+
+}
+
+.menu-hamburguesa{
+    background-color: rgba(61, 71, 105, 1);
+    width: 25%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 21;
+    margin-top: 70px;
+    align-self: flex-end;
+}
+
+.opciones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin-top: 2%;
+    padding-bottom: 5%;
+    border-bottom: 2px solid rgba(241, 233, 233, 1);
+}
+.menu-hamburguesa .opciones h1{
+    color: rgba(241, 233, 233, 1);
+    font-size: 15px;
+    margin-top: 8%;
+}
+
+.redesIcons{
+    width: 100%;
+}
 
 
 
