@@ -40,6 +40,39 @@
                 <p><a href="game.html"> 4 en linea</a></p>
             </div>
             <div class="gaming-zone">
+                <div id="barraOpciones" class="barraOpciones">
+
+                    <div id="opciones" class="visible">
+                        <label for="">Seleccione el tipo de juego</label>
+                        <div class="content-select">
+                            <select id="selectJuego" name="selectJuego">
+                                <option value="0" selected>4 en 1</option>
+                                <option value="1">5 en 1</option>
+                                <option value="2">6 en 1</option>
+                                <option value="3">7 en 1</option>
+                            </select>
+                        </div>
+                        <label for="">Seleccione la rivalidad</label>
+                        <div class="content-select">
+                            <select id="selectRivales" name="selectRivales">
+                                <option value="plantas">Plantas vs Zombies</option>
+                                <option value="girasoles">Girasoles vs Soldados</option>
+                            </select>
+                        </div>
+                        <button class="botonJugar" id="jugar">Jugar</button>
+                    </div>
+        
+                    <div class="oculto" id="jugando">
+                        <button class="botonJugar" id="reiniciarHeader">Reiniciar</button>
+                        <p class="coment" id=comentario> </p>
+                        <p class="time">Tiempo</p>
+                        <div class="bloque">
+                            <p class="time" id="minutos">00:00</p>
+                        </div>
+                        <h3>Turno: </h3>
+                    </div>
+                </div>
+        
                 <div class="portada">
                     <canvas id="canvas" width="1080" height="700"></canvas>
                 </div>

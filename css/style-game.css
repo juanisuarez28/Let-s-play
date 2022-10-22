@@ -103,7 +103,6 @@ input:checked ~ .menu-hamburguesa{
 .gaming-zone{
     display: flex;
     flex-direction: column;
-    padding: 10px;
     padding-bottom: 10%;
     background-color: rgba(61, 71, 105, 1);
 }
@@ -117,7 +116,6 @@ input:checked ~ .menu-hamburguesa{
     display: flex;
     font-size: 8px;
     align-self: flex-start;
-    margin-top: 5px;
     margin-bottom: 3px;
     margin-left: 12px;
 }
@@ -333,7 +331,6 @@ div .columnaRedes ul li img{
     }
 
     .gaming-zone{
-        padding-top: 15px;
         padding-left: 50px;
         padding-right: 50px;
     }
@@ -367,6 +364,51 @@ div .columnaRedes ul li img{
 }
 
 @media only screen and (min-width:900px){
+
+    /* JUEGO */
+    .oculto{
+        display: none;
+    }
+
+    .visible{
+
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+
+    .opciones{
+        display: flex;    
+    
+    }
+
+    select, .botonJugar{
+        border-radius: 5px;
+    }
+
+    label{
+        align-content: center;
+        margin-left: 20px;
+        margin-right: 5px;
+        font-size: 15px;
+    }
+
+    select{
+        height: 30px;        
+        text-align: center;
+        cursor: pointer;
+    }
+
+
+    .botonJugar{
+        margin-left: 20px;
+        cursor: pointer;
+        width: 50px;
+        height: 30px;
+    }
+
+
 
     .contenedor{
         grid-template-rows:1fr 25fr 2fr;
@@ -439,7 +481,6 @@ div .columnaRedes ul li img{
         width: 1040px;
     }
     .gaming-zone{
-        padding-top: 35px;
         padding-left: 80px;
         padding-right: 80px;
     }
