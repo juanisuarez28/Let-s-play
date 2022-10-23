@@ -274,7 +274,9 @@ div .columnaRedes ul li img{
     width: 100%;
 }
 
-
+canvas{
+    background-color: gainsboro;
+}
 
 
 
