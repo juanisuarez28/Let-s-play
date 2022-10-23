@@ -4,12 +4,12 @@ class Tablero{
 
     constructor(canvas,goalConfig, context) {
         this.canvas = canvas;
-        this.columns = goalConfig + 3;
-        this.rows = goalConfig + 2;
+        this.columns = parseInt(goalConfig) + 3;
+        this.rows = parseInt(goalConfig) + 3;
         this.ctx = context;
-        this.boardCoords = canvas.getBoundingClientRect() ; //obtiene coordenada donde se ubica canvas
-        this.boardWidth = canvas.clientWidth *0.9 ; //obtiene el ancho del tablero
-        this.boardHeight = canvas.clientHeight; //obtiene el largo del tablero
+        this.boardWidth = canvas.clientWidth *0.85 ; //obtiene el ancho del tablero
+        this.boardHeight = canvas.clientHeight *0.85; //obtiene el largo del tablero
+        
     }
 
     //GETTERS
@@ -23,9 +23,9 @@ class Tablero{
 
 
     create() {
-        let nextX = 0;    //Devuelve ubicación del proximo casillero en X
-        let nextY = 0;    //Devuelve ubicación del proximo casillero en Y
         let proportions = this.proportions();    //Llama a medidas proporcionales
+        let nextX = this.coords(proportions).xCoord;    //Devuelve ubicación del proximo casillero en X
+        let nextY = this.coords(proportions).yCoord;    //Devuelve ubicación del proximo casillero en Y
         let squareName;     //declaro nombre de casillero
         for (let x = 0; x < this.rows; x++) {
             for (let y = 0; y < this.columns; y++) {
@@ -58,6 +58,12 @@ class Tablero{
         };
     }
 
+    coords(proportions){
+        return {
+            xCoord:((this.boardWidth/2)-(this.columns/2)*proportions.width),
+            yCoord:((this.boardHeight/2)-(this.height/2)*proportions.height)
+        };
+    }
 
 
 
