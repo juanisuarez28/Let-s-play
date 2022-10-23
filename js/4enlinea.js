@@ -1,6 +1,6 @@
 "use strict"
 
-
+document.addEventListener("DOMContentLoaded", function () {
 
 //MAIN DEL JUEGO
 //SE PROCEDE A AGARRAR TODAS LAS VARIABLES; TANTO OPCIONES DE JUEGO, FICHAS, ETC
@@ -14,10 +14,10 @@ let fichas=[];
 //por ahora se ejecuta sola, despues se ejecutaria con el botonJugar
 function init() {
     createBoard();
-    addFicha();
-    dibujarFichas();
-    initEvents();
-    setInterval(dibujarFichas, 20);
+    //addFicha();
+   // dibujarFichas();
+    //initEvents();
+   // setInterval(dibujarFichas, 20);
     
 }
 
@@ -63,9 +63,8 @@ function mouseUp() {
 //Inicia el juego y se crea el tablero
 function createBoard(){
     let goalConfig = document.getElementById("selectJuego").value;
-    console.log(goalConfig);
-    let newBoard = new Tablero(canvas,goalConfig,context);
-
+    let newBoard = new Tablero(canvas,goalConfig,ctx);
+    newBoard.create();
 }
 
 
@@ -96,3 +95,5 @@ function clearCanvas() {
 
 
 init();
+
+});

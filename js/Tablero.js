@@ -8,8 +8,8 @@ class Tablero{
         this.rows = goalConfig + 2;
         this.ctx = context;
         this.boardCoords = canvas.getBoundingClientRect() ; //obtiene coordenada donde se ubica canvas
-        this.boardWidth = canvas.clientWidth() *0.9 ; //obtiene el ancho del tablero
-        this.boardHeight = canvas.clienHeight(); //obtiene el largo del tablero
+        this.boardWidth = canvas.clientWidth *0.9 ; //obtiene el ancho del tablero
+        this.boardHeight = canvas.clientHeight; //obtiene el largo del tablero
     }
 
     //GETTERS
@@ -27,8 +27,8 @@ class Tablero{
         let nextY = 0;    //Devuelve ubicación del proximo casillero en Y
         let proportions = this.proportions();    //Llama a medidas proporcionales
         let squareName;     //declaro nombre de casillero
-        for (let x = 0; x < this.cantRows; x++) {
-            for (let y = 0; y < this.cantColumns; y++) {
+        for (let x = 0; x < this.rows; x++) {
+            for (let y = 0; y < this.columns; y++) {
                 squareName = "" + x + (y-1);              //almaceno nombre de casillero
 
                 var addSquare = new Square(nextX, nextY,
@@ -38,18 +38,14 @@ class Tablero{
                 addSquare.createSquare();         //se dibuja el casillero
                 nextY += addSquare.getSquareHeight();   //deslizamos punto dibujo de columna
                 
-                let column = this.columns.push(addSquare); //se almacenan en columna
-           
-                if(y==this.cantColumns-1){                   //la columna almacenada, se
-                    this.columnsCollection.push(column); //almacena en coleccion
-                }
+       
             }
             nextY = 0;                           //deslizamos columna a posicion 0
             nextX += addSquare.getSquareWidth();        //deslizamos el punto de dibujo fila 
-            this.columns.splice(0,this.columns.length); //reseteamos columna
+       
         }
         for(let i=0; i <= 1; i++){
-            nextY = this.heightBoard;
+            nextY = this.boardHeight;
             nextX = 0;
 
         }
