@@ -93,7 +93,12 @@ function clearCanvas() {
 
 
 
+document.getElementById("jugar").addEventListener("click", ()=>{
+    clearCanvas();
+    init();
+    
 
-init();
+})
+    
 
 });
