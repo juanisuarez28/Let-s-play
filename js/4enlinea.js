@@ -11,13 +11,14 @@ let ctx=canvas.getContext('2d');
 let fichas=[];
 
 
+
 //por ahora se ejecuta sola, despues se ejecutaria con el botonJugar
 function init() {
     createBoard();
-    //addFicha();
+   // addFicha();
    // dibujarFichas();
     //initEvents();
-   // setInterval(dibujarFichas, 20);
+    //setInterval(dibujarFichas, 20);
     
 }
 
@@ -71,8 +72,11 @@ function createBoard(){
 //Una vez iniciado el juego se pushean las fichas(segun modo de juego se crean x fichas)
 
 function addFicha(){
+    let cantFichas = parseInt(goalConfig)+38
     let ficha = new Ficha (500,500, ctx);
-    fichas.push(ficha);
+    if(fichas.length<=cantFichas){
+        fichas.push(ficha);
+    }
 }
 
 
@@ -80,7 +84,6 @@ function addFicha(){
 
 //antes de dibujarlas a la hora de mover las fichas, se borra el registro con la funcion clearCanvas() para simular el desplazamiento
 function dibujarFichas(){
-    clearCanvas();
     fichas.forEach(ficha => {
         ficha.draw();
     })

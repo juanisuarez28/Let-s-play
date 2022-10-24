@@ -1,6 +1,6 @@
 class Square{
-    
-    constructor(x, y, squareWidth, squareHeight, content, context, squareName) {
+
+    constructor(x, y, squareWidth, squareHeight, content, context, squareName, ySuffix) {
         this.x = x;
         this.y = y;
         this.squareWidth = squareWidth;
@@ -8,6 +8,7 @@ class Square{
         this.content = content;
         this.ctx = context;
         this.squareName = squareName;
+        this.ySuffix = ySuffix;
     }
 
 
@@ -38,7 +39,7 @@ class Square{
         let borderWidth = 3;
         var offset = borderWidth * 2;
         this.ctx.beginPath();
-        if(this.y==0){
+        if(this.ySuffix==-1){
             this.ctx.fillStyle = 'rgba(10, 70, 5, 0.3)';
             this.ctx.fillRect(this.x - borderWidth, this.y - borderWidth, this.squareWidth + offset, this.squareHeight + offset);
             this.ctx.fillStyle = 'rgba(10, 70, 5, 0.1)';
