@@ -15,10 +15,10 @@ let fichas=[];
 //por ahora se ejecuta sola, despues se ejecutaria con el botonJugar
 function init() {
     createBoard();
-   // addFicha();
-   // dibujarFichas();
-    //initEvents();
-    //setInterval(dibujarFichas, 20);
+    // addFicha();
+    // dibujarFichas();
+    // initEvents();
+    // setInterval(dibujarFichas, 20);
     
 }
 
@@ -36,9 +36,10 @@ function mouseDown(event){
 
     fichas.forEach(ficha => {
         if(ficha.checkSelected(x, y)){
-            ficha.setIsSelected(true);
+            console.log("seleccionada")
+            ficha.setSelected(true);
         }else{
-            ficha.setIsSelected(false);
+            ficha.setSelected(false);
         }
     });
 }
@@ -47,7 +48,7 @@ function mouseDown(event){
 function mouseMove(event) {
     let x=event.clientX + event.currentTarget.offsetLeft;
     let y= event.clientY + event.currentTarget.offsetTop;
-
+    
     fichas.forEach(ficha => {
         if(ficha.isSelected()){
             ficha.move(x,y); 
@@ -56,14 +57,18 @@ function mouseMove(event) {
 }
 
 function mouseUp() {
-    ficha.setIsSelected(false);
+    fichas.forEach(ficha => {
+        ficha.setSelected(false);    
+    });
+    
 }
 
 
 
 //Inicia el juego y se crea el tablero
+
+let goalConfig = document.getElementById("selectJuego").value;
 function createBoard(){
-    let goalConfig = document.getElementById("selectJuego").value;
     let newBoard = new Tablero(canvas,goalConfig,ctx);
     newBoard.create();
 }
@@ -73,7 +78,7 @@ function createBoard(){
 
 function addFicha(){
     let cantFichas = parseInt(goalConfig)+38
-    let ficha = new Ficha (500,500, ctx);
+    let ficha = new Ficha (0,0, ctx);
     if(fichas.length<=cantFichas){
         fichas.push(ficha);
     }
@@ -84,6 +89,7 @@ function addFicha(){
 
 //antes de dibujarlas a la hora de mover las fichas, se borra el registro con la funcion clearCanvas() para simular el desplazamiento
 function dibujarFichas(){
+    clearCanvas();
     fichas.forEach(ficha => {
         ficha.draw();
     })
@@ -98,10 +104,8 @@ function clearCanvas() {
 
 document.getElementById("jugar").addEventListener("click", ()=>{
     clearCanvas();
-    init();
-    
-
+    init(); 
 })
-    
+
 
 });
