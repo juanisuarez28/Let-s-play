@@ -18,10 +18,10 @@ let fichas=[];
 //por ahora se ejecuta sola, despues se ejecutaria con el botonJugar
 function init() {
     createBoard();
-    // addFicha();
-    // dibujarFichas();
-    // initEvents();
-    // setInterval(dibujarFichas, 20);
+    addFicha();
+    dibujarFichas();
+    initEvents();
+    setInterval(dibujarFichas, 20);
     
 }
 
@@ -34,8 +34,8 @@ function initEvents(){
 }
 
 function mouseDown(event){
-    let x=event.clientX + event.currentTarget.offsetLeft;
-    let y= event.clientY + event.currentTarget.offsetTop;
+    let x=event.clientX - event.currentTarget.offsetLeft;
+    let y= event.clientY - event.currentTarget.offsetTop;
 
     fichas.forEach(ficha => {
         if(ficha.checkSelected(x, y)){
@@ -49,8 +49,8 @@ function mouseDown(event){
 
 
 function mouseMove(event) {
-    let x=event.clientX + event.currentTarget.offsetLeft;
-    let y= event.clientY + event.currentTarget.offsetTop;
+    let x=event.clientX - event.currentTarget.offsetLeft;
+    let y= event.clientY - event.currentTarget.offsetTop;
     
     fichas.forEach(ficha => {
         if(ficha.isSelected()){
