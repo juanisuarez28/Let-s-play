@@ -7,8 +7,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 let canvas=document.getElementById('canvas');
+
+ /** @type {CanvasRenderingContext2D} */
 let ctx=canvas.getContext('2d');
 let fichas=[];
+
 
 
 
