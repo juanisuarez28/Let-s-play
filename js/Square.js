@@ -34,7 +34,7 @@ class Square{
 
 
 
-    createSquare() {              //se dibuja casillero
+    drawSquare() {              //se dibuja casillero
         let name = this.squareName;
         let borderWidth = 3;
         var offset = borderWidth * 2;

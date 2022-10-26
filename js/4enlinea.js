@@ -10,7 +10,9 @@ let canvas=document.getElementById('canvas');
 
  /** @type {CanvasRenderingContext2D} */
 let ctx=canvas.getContext('2d');
+let board = new Tablero(canvas,0,null);
 let fichas=[];
+
 
 
 
@@ -26,7 +28,7 @@ function init() {
 }
 
 
-
+//EVENTOS DE MOVIMIENTO
 function initEvents(){
     canvas.onmousedown=mouseDown;
     canvas.onmousemove=mouseMove;
@@ -70,15 +72,18 @@ function mouseUp() {
 
 //Inicia el juego y se crea el tablero
 
-let goalConfig = document.getElementById("selectJuego").value;
+
 function createBoard(){
-    let newBoard = new Tablero(canvas,goalConfig,ctx);
-    newBoard.create();
+    board.clearBoard(); //limpia tablero
+    let goal = parseInt(document.getElementById("selectJuego").value); //toma la configuracion del modo de juego
+    board = new Tablero(canvas,goal,ctx); //instancia un tablero nuevo
+    board.create(); //crea las casillas
+    board.drawBoard(); //dibuja las casillas
 }
 
 
 //Una vez iniciado el juego se pushean las fichas(segun modo de juego se crean x fichas)
-
+let goalConfig = parseInt(document.getElementById("selectJuego").value);
 function addFicha(){
     let cantFichas = parseInt(goalConfig)+38
     let ficha = new Ficha (0,0, ctx);
@@ -93,18 +98,24 @@ function addFicha(){
 //antes de dibujarlas a la hora de mover las fichas, se borra el registro con la funcion clearCanvas() para simular el desplazamiento
 function dibujarFichas(){
     clearCanvas();
+    board.drawBoard();
     fichas.forEach(ficha => {
         ficha.draw();
     })
 }
 
-
+//Limpieza de canvas, restauracion de tablero
 function clearCanvas() {
+    board.clearBoard;   //limpia tablero
     ctx.clearRect(0, 0, 1080, 700);
 }
 
 
 
+
+
+
+// INICIA EL JUEGO
 document.getElementById("jugar").addEventListener("click", ()=>{
     clearCanvas();
     init(); 
