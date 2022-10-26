@@ -1,6 +1,6 @@
 class Square{
 
-    constructor(x, y, squareWidth, squareHeight, content, context, squareName, ySuffix) {
+    constructor(x, y, squareWidth, squareHeight, content, context, squareName) {
         this.x = x;
         this.y = y;
         this.squareWidth = squareWidth;
@@ -8,7 +8,6 @@ class Square{
         this.content = content;
         this.ctx = context;
         this.squareName = squareName;
-        this.ySuffix = ySuffix;
     }
 
 
@@ -39,18 +38,21 @@ class Square{
         let borderWidth = 3;
         var offset = borderWidth * 2;
         this.ctx.beginPath();
-        if(this.ySuffix==-1){
+        if(this.content=="entrada"){
             this.ctx.fillStyle = 'rgba(10, 70, 5, 0.3)';
             this.ctx.fillRect(this.x - borderWidth, this.y - borderWidth, this.squareWidth + offset, this.squareHeight + offset);
             this.ctx.fillStyle = 'rgba(10, 70, 5, 0.1)';
             this.ctx.fillRect(this.x, this.y, this.squareWidth, this.squareHeight);
-
+            this.ctx.fillStyle = "black";
+            this.ctx.font = "20px Arial";
+            this.ctx.fillText(name,this.x + this.squareWidth/2,this.y + this.squareHeight/2);
         }else{
             this.ctx.fillStyle = "black"
             this.ctx.fillRect(this.x - borderWidth, this.y - borderWidth, this.squareWidth + offset, this.squareHeight + offset);
             this.ctx.fillStyle = "#3C4F3B";
             this.ctx.fillRect(this.x, this.y, this.squareWidth, this.squareHeight);
             this.ctx.fillStyle = "black"
+            this.ctx.font = "14px Arial";
             this.ctx.fillText(name,this.x + this.squareWidth/2,this.y + this.squareHeight/2);
         } 
     }

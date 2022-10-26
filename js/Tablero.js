@@ -32,11 +32,13 @@ class Tablero{
             squareFromEachColumnList = [];           //me aseguro de tener vacia la lista de filas auxiliar
             for (let y = 0; y < this.columns; y++) {
 
+
                 let ySuffix = y-1;      // esta variable permite diferenciar casilleros de entrada de los casilleros comunes
                 let squareName = "" + x + (y-1);              //almaceno nombre de casillero
+                let enteringSquareName = x;                   //almaceno nombre de casillero de entrada
                 
                 //CREO UN NUEVO CASILLERO
-                var square = this.createSquare(nextX,nextY,proportions,squareName,ySuffix); 
+                var square = this.createSquare(nextX,nextY,proportions,squareName,ySuffix,enteringSquareName); 
 
                 nextY += square.getSquareHeight();   //deslizamos punto dibujo de columna
                 
@@ -53,16 +55,16 @@ class Tablero{
 
 
     //METODO QUE FABRICA DISTINTOS TIPOS DE CASILLEROS
-    createSquare(nextX,nextY,proportions,squareName,ySuffix){
+    createSquare(nextX,nextY,proportions,squareName,ySuffix,enteringSquareName){
         let newSquare;
-        if(!ySuffix<0){
+        if(ySuffix>=0){
              newSquare = new Square(nextX, nextY,
                 proportions.width, proportions.height, "vacio", this.ctx,
-                squareName, ySuffix); //se instancia casillero comun
+                squareName); //se instancia casillero comun
         }else{
              newSquare = new Square(nextX, nextY,
                 proportions.width, proportions.height, "entrada", this.ctx,
-                squareName, ySuffix); //se instancia casillero de entrada
+                enteringSquareName); //se instancia casillero de entrada
         }
         return newSquare;
     }
