@@ -9,6 +9,7 @@ class Tablero{
         this.boardWidth = canvas.clientWidth * 0.70; //obtiene el ancho del tablero
         this.boardHeight = canvas.clientHeight *0.70; //obtiene el largo del tablero
         this.columnsMemory = []; //almacena los objetos casilleros que seran renderizados periodicamente
+   
     }
 
     //GETTERS
@@ -73,14 +74,17 @@ class Tablero{
 
     // RENDERIZACION DE CASILLEROS EN BASE A MEMORIA
     drawBoard(){
+        let image = new Image();
         for(let x = 0; x < this.columnsMemory.length; x++){
             let rows = this.columnsMemory[x];
             for(let y = 0; y < rows.length; y++){
                 let squareToDraw = rows[y];
-                squareToDraw.drawSquare();
+                squareToDraw.drawSquare(image);
             }
         }
     }
+
+    
 
     // LIMPIEZA DE TABLERO
     clearBoard(){

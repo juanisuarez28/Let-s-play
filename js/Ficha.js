@@ -9,6 +9,7 @@ class Ficha{
     }
 
     draw(){
+        this.ctx.beginPath();
         this.ctx.fillStyle="00FF00";
         this.ctx.fillRect(this.x, this.y, this.w, this.h);
     }

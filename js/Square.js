@@ -33,28 +33,35 @@ class Square{
 
 
 
-    drawSquare() {              //se dibuja casillero
+    drawSquare(image) {              //se dibuja casillero
         let name = this.squareName;
         let borderWidth = 3;
         var offset = borderWidth * 2;
-        this.ctx.beginPath();
+        let context = this.ctx
+        context.beginPath();
         if(this.content=="entrada"){
-            this.ctx.fillStyle = 'rgba(10, 70, 5, 0.3)';
-            this.ctx.fillRect(this.x - borderWidth, this.y - borderWidth, this.squareWidth + offset, this.squareHeight + offset);
-            this.ctx.fillStyle = 'rgba(10, 70, 5, 0.1)';
-            this.ctx.fillRect(this.x, this.y, this.squareWidth, this.squareHeight);
-            this.ctx.fillStyle = "black";
-            this.ctx.font = "20px Arial";
-            this.ctx.fillText(name,this.x + this.squareWidth/2,this.y + this.squareHeight/2);
+            context.fillStyle = 'rgba(10, 70, 5, 0.3)';
+            context.fillRect(this.x - borderWidth, this.y - borderWidth, this.squareWidth + offset, this.squareHeight + offset);
+            context.fillStyle = 'rgba(10, 70, 5, 0.1)';
+            context.fillRect(this.x, this.y, this.squareWidth, this.squareHeight);
+            context.fillStyle = "black";
+            context.font = "20px Arial";
+            context.fillText(name,this.x + this.squareWidth/2,this.y + this.squareHeight/2);
         }else{
-            this.ctx.fillStyle = "black"
-            this.ctx.fillRect(this.x - borderWidth, this.y - borderWidth, this.squareWidth + offset, this.squareHeight + offset);
-            this.ctx.fillStyle = "#3C4F3B";
-            this.ctx.fillRect(this.x, this.y, this.squareWidth, this.squareHeight);
-            this.ctx.fillStyle = "black"
-            this.ctx.font = "14px Arial";
-            this.ctx.fillText(name,this.x + this.squareWidth/2,this.y + this.squareHeight/2);
+            image.src = "img/casillero_vacio.png";
+            image.onload = function(){
+                context.drawImage(image,this.x, this.y, 400, 400);
+            }
+            context.fillStyle = "black"
+            context.fillRect(this.x - borderWidth, this.y - borderWidth, this.squareWidth + offset, this.squareHeight + offset);
+            context.fillStyle = "#3C4F3B";
+            context.fillRect(this.x, this.y, this.squareWidth, this.squareHeight);
+            context.fillStyle = "bisque"
+            context.font = "14px Arial";
+            context.fillText(name,this.x + this.squareWidth/2,this.y + this.squareHeight/2);
         } 
     }
 
+
+    
 }
