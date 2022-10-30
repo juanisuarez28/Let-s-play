@@ -74,12 +74,12 @@ class Tablero{
 
     // RENDERIZACION DE CASILLEROS EN BASE A MEMORIA
     drawBoard(){
-        let image = new Image();
+        
         for(let x = 0; x < this.columnsMemory.length; x++){
             let rows = this.columnsMemory[x];
             for(let y = 0; y < rows.length; y++){
                 let squareToDraw = rows[y];
-                squareToDraw.drawSquare(image);
+                squareToDraw.drawSquare();
             }
         }
     }

@@ -33,32 +33,43 @@ class Square{
 
 
 
-    drawSquare(image) {              //se dibuja casillero
+    drawSquare() {              //se dibuja casillero
         let name = this.squareName;
         let borderWidth = 3;
         var offset = borderWidth * 2;
         let context = this.ctx
         context.beginPath();
         if(this.content=="entrada"){
-            context.fillStyle = 'rgba(10, 70, 5, 0.3)';
+            let nameEntry = name + ", lugar ficha";
+            context.fillStyle = "lightblue";
             context.fillRect(this.x - borderWidth, this.y - borderWidth, this.squareWidth + offset, this.squareHeight + offset);
             context.fillStyle = 'rgba(10, 70, 5, 0.1)';
             context.fillRect(this.x, this.y, this.squareWidth, this.squareHeight);
             context.fillStyle = "black";
-            context.font = "20px Arial";
-            context.fillText(name,this.x + this.squareWidth/2,this.y + this.squareHeight/2);
-        }else{
-            image.src = "img/casillero_vacio.png";
-            image.onload = function(){
-                context.drawImage(image,this.x, this.y, 400, 400);
+            if(this.getSquareWidth()<85){
+                context.font = "12px Arial";
+                context.fillText(nameEntry,(this.x - 35) + this.squareWidth/2,this.y + this.squareHeight/2);
+            }else{
+                context.font = "15px Arial";
+                context.fillText(nameEntry,(this.x - 45) + this.squareWidth/2,this.y + this.squareHeight/2);
             }
+            
+
+        }else{
+            //SE CARGA LA IMAGEN
+            let img = new Image();
+            img.context = context;
+            img.src = "img/casillero_vacio.png";
+            //SE RENDERIZAN CASILLEROS DE JUEGO
+            context.drawImage(img ,this.x , this.y, this.squareWidth, this.squareHeight);
             context.fillStyle = "black"
             context.fillRect(this.x - borderWidth, this.y - borderWidth, this.squareWidth + offset, this.squareHeight + offset);
             context.fillStyle = "#3C4F3B";
             context.fillRect(this.x, this.y, this.squareWidth, this.squareHeight);
-            context.fillStyle = "bisque"
+            context.drawImage(img ,this.x , this.y,  this.squareWidth,this.squareHeight);
+            context.fillStyle = "black"
             context.font = "14px Arial";
-            context.fillText(name,this.x + this.squareWidth/2,this.y + this.squareHeight/2);
+            context.fillText(name,(this.x-8) + this.squareWidth/2,(this.y+8) + this.squareHeight/2);
         } 
     }
 
