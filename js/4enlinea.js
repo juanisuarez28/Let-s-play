@@ -86,11 +86,22 @@ function createBoard(){
 let goalConfig = parseInt(document.getElementById("selectJuego").value);
 function addFicha(){
     let cantFichas = parseInt(goalConfig)+38
-    let ficha = new Ficha (0,0, ctx);
-    if(fichas.length<=cantFichas){
+    let yAxis = 30;
+    let mitad = Math.floor(cantFichas / 2);
+    
+    for(let i = 0; fichas.length<=mitad; i++){
+        let ficha = new Ficha (40, yAxis, ctx,"blue","player1");
         fichas.push(ficha);
+        yAxis += 30;
+    }
+    yAxis = 30;
+    for(let i = 0; fichas.length<=cantFichas; i++){
+        let ficha = new Ficha (1000, yAxis, ctx,"red","player2");
+        fichas.push(ficha);
+        yAxis += 30;
     }
 }
+
 
 
 
