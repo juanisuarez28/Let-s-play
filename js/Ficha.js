@@ -17,20 +17,20 @@ class Ficha{
         this.ctx.arc(this.x, this.y, this.radio, 0, 2 * Math.PI, false);
         this.ctx.fill();
         //Rellenamos segun el modo de juego
-        if(this.modo==="plantas"){
-            if(this.player==="player1"){
-                img.src = "img/planta.png";
-            }else{
-                img.src = "img/zombie.png";
-            }
-        }else if(this.modo==="girasoles"){
-            if(this.player==="player1"){
-                img.src = "img/girasol.png";
-            }else{
-                img.src = "img/soldado.png";
-            }
-        }
-        this.ctx.drawImage(img ,this.x , this.y,this.radio,this.radio);
+        // if(this.modo==="plantas"){
+        //     if(this.player==="player1"){
+        //         img.src = "img/planta.png";
+        //     }else{
+        //         img.src = "img/zombie.png";
+        //     }
+        // }else if(this.modo==="girasoles"){
+        //     if(this.player==="player1"){
+        //         img.src = "img/girasol.png";
+        //     }else{
+        //         img.src = "img/soldado.png";
+        //     }
+        // }
+
         this.ctx.stroke();
     
         let diametro = this.radio*2;
