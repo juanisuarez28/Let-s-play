@@ -99,6 +99,19 @@ document.addEventListener("DOMContentLoaded", function () {
         let modo=document.getElementById("selectRivales").value;
 
         fichas = [];
+        let estiloFichas = document.getElementById("selectRivales").value;
+        let estilo = null;
+        if (estiloFichas == "cristales"){
+            estilo = {
+                j1:"img/fichaAzul.png",
+                j2:"img/ficha.png"
+            };
+        }else if(estiloFichas== "redes"){
+            estilo = {
+                j1:"img/fichawas.png",
+                j2:"img/fichatwi.png"
+            };
+        }
         for (let i = 0; i < mitad; i++) {
             if(i<mitadDeMitadPrimera){
                 let ficha = new Ficha(40, yAxis, ctx, "blue", "player1", modo);
