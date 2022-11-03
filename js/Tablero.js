@@ -1,50 +1,50 @@
-class Tablero{
+class Tablero {
 
 
-    constructor(canvas,goalConfig,boardStyle, context) {
+    constructor(canvas, goalConfig, boardStyle, context) {
         this.canvas = canvas;
         this.columns = parseInt(goalConfig) + 3;
         this.rows = parseInt(goalConfig) + 3;
         this.boardStyle = boardStyle;
         this.ctx = context;
         this.boardWidth = canvas.clientWidth * 0.60; //obtiene el ancho del tablero
-        this.boardHeight = canvas.clientHeight *0.60; //obtiene el largo del tablero
+        this.boardHeight = canvas.clientHeight * 0.60; //obtiene el largo del tablero
         this.columnsMemory = []; //almacena los objetos casilleros que seran renderizados periodicamente
-   
+
     }
 
     //GETTERS
     getColumns() {
-        return this.column;
+        return this.columns;
     }
     getRows() {
         return this.rows;
     }
-   
+
 
     //CREACION DE CASILLEROS SEGUN CONFIGURACION DEL JUEGO Y ALMACENAMIENTO A MEMORIA
     create() {
-        
+
         let proportions = this.proportions();    //Llama a medidas proporcionales
         let nextX = this.getCoords().xCoord;    //Devuelve ubicación del proximo casillero en X
         let nextY = this.getCoords().yCoord;    //Devuelve ubicación del proximo casillero en Y
         let squareFromEachColumnList = []; //declaro una lista de casilleros auxiliar
 
-        
-        
+
+
         //CONTROLA EL ESTILO SELECCIONADO DEL JUEGO
-        
+
         let style = null;
-        if(this.boardStyle === "standard"){
-            style ={
-                        url:"img/casillero_vacio.png",
-                        textColor:"black"
-                    };
-            
-        }else{
+        if (this.boardStyle === "standard") {
             style = {
-                        url: "img/casillero_vacio2.jpg",
-                        textColor:"bisque"
+                url: "img/casillero_vacio.png",
+                textColor: "black"
+            };
+
+        } else {
+            style = {
+                url: "img/casillero_vacio2.jpg",
+                textColor: "bisque"
             };
         }
 
@@ -55,17 +55,17 @@ class Tablero{
 
             for (let y = 0; y < this.columns; y++) {
 
-                let ySuffix = y-1;      // esta variable permite diferenciar casilleros de entrada de los casilleros comunes
-                let squareName = "" + x + (y-1);              //almaceno nombre de casillero
-                
-                //CREO UN NUEVO CASILLERO
-                var square = this.createSquare(nextX,nextY,proportions,squareName,ySuffix,style); //creo casilla
+                let ySuffix = y - 1;      // esta variable permite diferenciar casilleros de entrada de los casilleros comunes
+                let squareName = "" + x + (y - 1);              //almaceno nombre de casillero
 
-                nextY += square.getSquareHeight();   //deslizamos punto de dibujo para siguiente columna en eje Y
+                //CREO UN NUEVO CASILLERO
+                var square = this.createSquare(nextX, nextY, proportions, squareName, ySuffix, style); //creo casilla
                 
+                nextY += square.getSquareHeight();   //deslizamos punto de dibujo para siguiente columna en eje Y
+
                 squareFromEachColumnList.push(square);     //almaceno el casillero de cada fila en el arreglo
             }
-            
+
             //DESLIZAMIENTOS
             nextY = this.getCoords().yCoord;         //deslizamos a posicion inicial del eje Y
             nextX += square.getSquareWidth();        //deslizamos sobre el eje X para comenzar la siguiente columna
@@ -77,16 +77,16 @@ class Tablero{
 
 
     //METODO QUE FABRICA DISTINTOS TIPOS DE CASILLEROS
-    createSquare(nextX,nextY,proportions,squareName,ySuffix,boardStyleURL){
+    createSquare(nextX, nextY, proportions, squareName, ySuffix, boardStyleURL) {
         let newSquare;
-        if(ySuffix>=0){ //Pregunto si no son el primer indice de cada columna
-             newSquare = new Square(nextX, nextY,
+        if (ySuffix >= 0) { //Pregunto si no son el primer indice de cada columna
+            newSquare = new Square(nextX, nextY,
                 proportions.width, proportions.height, "vacio", this.ctx,
-                squareName,boardStyleURL); //se instancia casillero comun
-        }else{  //si es el primer indice de columna, significa que es casilla para depositar ficha
-             newSquare = new Square(nextX, nextY,
+                squareName, boardStyleURL); //se instancia casillero comun
+        } else {  //si es el primer indice de columna, significa que es casilla para depositar ficha
+            newSquare = new Square(nextX, nextY,
                 proportions.width, proportions.height, "entrada", this.ctx,
-                squareName,boardStyleURL); //se instancia casillero de entrada
+                squareName, boardStyleURL); //se instancia casillero de entrada
         }
         return newSquare;
     }
@@ -94,20 +94,20 @@ class Tablero{
 
 
     // RENDERIZACION DE CASILLEROS EN BASE A MEMORIA
-    drawBoard(){
-        for(let x = 0; x < this.columnsMemory.length; x++){
+    drawBoard() {
+        for (let x = 0; x < this.columnsMemory.length; x++) {
             let rows = this.columnsMemory[x];
-            for(let y = 0; y < rows.length; y++){
+            for (let y = 0; y < rows.length; y++) {
                 let squareToDraw = rows[y];
                 squareToDraw.draw();
             }
         }
     }
 
-    
+
 
     // LIMPIEZA DE TABLERO
-    clearBoard(){
+    clearBoard() {
         this.columnsMemory = [];
     }
 
@@ -121,18 +121,55 @@ class Tablero{
 
 
     //METODO DE CENTRADO DE TABLERO EN BASE AL CANVAS
-    getCoords(){
-        let centerX = this.boardWidth/2;
-        let centerY = this.boardHeight/3;
-    
+    getCoords() {
+        let centerX = this.boardWidth / 2;
+        let centerY = this.boardHeight / 3;
+
         return {
-            xCoord:centerX - ((this.boardWidth*0.40)/2),
-            yCoord:centerY - ((this.boardHeight*0.55)/2)
+            xCoord: centerX - ((this.boardWidth * 0.40) / 2),
+            yCoord: centerY - ((this.boardHeight * 0.55) / 2)
         };
     }
 
-    
+/*
+    verify(jugador){
+        let columnas = this.columnsMemory;
+        let goal = this.goalConfig;
+        let lineaHorizontal = 0;
+        let lineaVertical = 0;
+        lineaHorizontal = horizontal(jugador);
+        lineaVertical = vertical(jugador,columnas);
+    }
 
+    vertical(jugador,columnas){
+        let arriba = 0;
+        let abajo = 0;
+        abajo = verifyDown(jugador,columnas);
+    }
+    verifyDown(jugador,columnas){
+        for(let columna; columna<=columnas;columna++){
+            casillas = columnas[columna];
+            for(let i; i<=casillas ;i++){
+                let casilla = casillas[i];
+                if(casilla.getContent()==jugador){
+                    
+                }
+            }
+        }
+    }
 
+    horizontal(jugador){
+        
+        let izquierda;
+        let derecha;
+        derecha = verifyRight(jugador);
+    }
 
+    verifyRight(jugador){
+        let columnas = this.columnsMemory;
+        for(let columna; columna<=columnas;columna++){
+            
+        }
+    }
+*/
 }

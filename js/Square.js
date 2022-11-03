@@ -39,20 +39,20 @@ class Square {
         let borderWidth = 3;
         var offset = borderWidth * 2;
         let context = this.ctx;
-        
+
         //SE GENERA UNA IMAGEN
         let img = new Image();
         img.context = context;
 
         context.beginPath();
         if (this.content == "entrada") {
-            this.drawEntry(img,borderWidth, offset, context); //METODOS PARA CASILLAS DE ENTRADA
+            this.drawEntry(img, borderWidth, offset, context); //METODOS PARA CASILLAS DE ENTRADA
         } else {
-            this.drawSquare(name,img,borderWidth,offset,context); //METODOS PARA CASILLAS DE JUEGO
+            this.drawSquare(name, img, borderWidth, offset, context); //METODOS PARA CASILLAS DE JUEGO
         }
     }
 
-    drawEntry(img,borderWidth, offset, context) {
+    drawEntry(img, borderWidth, offset, context) {
         //SE DIBUJA RECUADRO CELESTE DE FONDO
         let descripcion = "Insertar";
         context.fillStyle = "lightblue";
@@ -68,7 +68,7 @@ class Square {
         context.fillText(descripcion, (this.x - 30) + this.squareWidth / 2, (this.y - 20) + this.squareHeight / 2);
     }
 
-    drawSquare(name,img,borderWidth,offset,context) {
+    drawSquare(name, img, borderWidth, offset, context) {
         //SE RENDERIZAN CASILLEROS DE JUEGO
         //Se dibuja un fondo negro
         context.fillStyle = "black"
@@ -83,8 +83,19 @@ class Square {
         context.fillText(name, (this.x - 8) + this.squareWidth / 2, (this.y + 8) + this.squareHeight / 2);
     }
 
-    
 
+    /*
+    estaOcupado(){
+        if(this.content!="vacio"){
+            return true;
+        }
+    }
 
+    contieneFichaJugador(jugador){
+        if(this.content == "jugador"){
+            return true;
+        }
+    }
+*/
 
 }

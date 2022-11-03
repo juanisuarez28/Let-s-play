@@ -32,12 +32,12 @@ class Ficha{
 
     checkSelected(x, y){
         return x>this.x && x< this.x + this.radio //reemplace Width por radio!!!!!!!!!!!!!!!
-        && y>this.y&& y < this.y+this.h;
+        && y>this.y && y < this.y+this.radio;
     }
 
     move(x,y){
         this.x=x - (this.radio/2);
-        this.y=y - (this.h/2);
+        this.y=y - (this.radio/2);
     }
 
     isSelected(){
