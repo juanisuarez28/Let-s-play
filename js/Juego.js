@@ -1,4 +1,4 @@
-class Juego{
+class Juego {
 
 
 
