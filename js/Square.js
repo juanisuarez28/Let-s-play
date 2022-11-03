@@ -1,5 +1,4 @@
 class Square {
-
     constructor(x, y, squareWidth, squareHeight, content, context, squareName, style) {
         this.x = x;
         this.y = y;

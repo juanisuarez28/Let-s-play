@@ -1,6 +1,4 @@
 class Tablero {
-
-
     constructor(canvas, goalConfig, boardStyle, context) {
         this.canvas = canvas;
         this.columns = parseInt(goalConfig) + 3;
@@ -24,7 +22,6 @@ class Tablero {
 
     //CREACION DE CASILLEROS SEGUN CONFIGURACION DEL JUEGO Y ALMACENAMIENTO A MEMORIA
     create() {
-
         let proportions = this.proportions();    //Llama a medidas proporcionales
         let nextX = this.getCoords().xCoord;    //Devuelve ubicación del proximo casillero en X
         let nextY = this.getCoords().yCoord;    //Devuelve ubicación del proximo casillero en Y

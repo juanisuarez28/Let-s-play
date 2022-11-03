@@ -18,14 +18,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    //por ahora se ejecuta sola, despues se ejecutaria con el botonJugar
+    // INICIA EL JUEGO
+    document.getElementById("jugar").addEventListener("click", () => {
+        clearCanvas();
+        init();
+    })
+    
+    
     function init() {
         createBoard();
         addFicha();
         dibujarFichas();
         initEvents();
         setInterval(dibujarFichas, 20);
-
     }
 
 
@@ -72,8 +77,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     //Inicia el juego y se crea el tablero
-
-
     function createBoard() {
         board.clearBoard(); //limpia tablero
         let goal = parseInt(document.getElementById("selectJuego").value); //toma la configuracion del modo de juego
@@ -93,11 +96,12 @@ document.addEventListener("DOMContentLoaded", function () {
         let mitad = Math.floor(cantFichas / 2);
         let mitadDeMitadPrimera = (mitad-Math.floor(mitad/2));
         let mitadDeMitadSegunda = (cantFichas-Math.floor(mitad/2));
+        let modo=document.getElementById("selectRivales").value;
 
         fichas = [];
         for (let i = 0; i < mitad; i++) {
             if(i<mitadDeMitadPrimera){
-                let ficha = new Ficha(40, yAxis, ctx, "blue", "player1");
+                let ficha = new Ficha(40, yAxis, ctx, "blue", "player1", modo);
                 fichas.push(ficha);
                 yAxis += 30;
                 if(i==mitadDeMitadPrimera-1){
@@ -105,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
             else{
-                let ficha = new Ficha(100, yAxis, ctx, "blue", "player1");
+                let ficha = new Ficha(100, yAxis, ctx, "blue", "player1", modo);
                 fichas.push(ficha);
                 yAxis += 30;
             }
@@ -113,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
         yAxis = 30;
         for (let i = mitad; i < cantFichas; i++) {
             if(i<mitadDeMitadSegunda){
-                let ficha = new Ficha(940, yAxis, ctx, "red", "player2");
+                let ficha = new Ficha(940, yAxis, ctx, "red", "player2", modo);
                 fichas.push(ficha);
                 yAxis += 30;
                 if(i==mitadDeMitadSegunda-1){
@@ -121,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
             else{
-                let ficha = new Ficha(1000, yAxis, ctx, "red", "player2");
+                let ficha = new Ficha(1000, yAxis, ctx, "red", "player2", modo);
                 fichas.push(ficha);
                 yAxis += 30;
             }
@@ -148,16 +152,6 @@ document.addEventListener("DOMContentLoaded", function () {
         ctx.clearRect(0, 0, 1080, 700);
     }
 
-
-
-
-
-
-    // INICIA EL JUEGO
-    document.getElementById("jugar").addEventListener("click", () => {
-        clearCanvas();
-        init();
-    })
 
     /*
     
