@@ -82,7 +82,6 @@ class Square {
         context.fillText(name, (this.x - 8) + this.squareWidth / 2, (this.y + 8) + this.squareHeight / 2);
     }
 
-<<<<<<< HEAD
 
     /*
     estaOcupado(){
@@ -90,16 +89,6 @@ class Square {
             return true;
         }
     }
-=======
-
-    /*
-    estaOcupado(){
-        if(this.content!="vacio"){
-            return true;
-        }
-    }
-
->>>>>>> 125f8b79f25b815c8e04d188d867d007ea0c045b
     contieneFichaJugador(jugador){
         if(this.content == "jugador"){
             return true;

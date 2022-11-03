@@ -1,9 +1,6 @@
 class Tablero {
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 125f8b79f25b815c8e04d188d867d007ea0c045b
     constructor(canvas, goalConfig, boardStyle, context) {
         this.canvas = canvas;
         this.columns = parseInt(goalConfig) + 3;
@@ -27,10 +24,6 @@ class Tablero {
 
     //CREACION DE CASILLEROS SEGUN CONFIGURACION DEL JUEGO Y ALMACENAMIENTO A MEMORIA
     create() {
-<<<<<<< HEAD
-
-=======
->>>>>>> 125f8b79f25b815c8e04d188d867d007ea0c045b
         let proportions = this.proportions();    //Llama a medidas proporcionales
         let nextX = this.getCoords().xCoord;    //Devuelve ubicación del proximo casillero en X
         let nextY = this.getCoords().yCoord;    //Devuelve ubicación del proximo casillero en Y
@@ -146,10 +139,6 @@ class Tablero {
         lineaHorizontal = horizontal(jugador);
         lineaVertical = vertical(jugador,columnas);
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> 125f8b79f25b815c8e04d188d867d007ea0c045b
     vertical(jugador,columnas){
         let arriba = 0;
         let abajo = 0;
@@ -166,20 +155,12 @@ class Tablero {
             }
         }
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> 125f8b79f25b815c8e04d188d867d007ea0c045b
     horizontal(jugador){
         
         let izquierda;
         let derecha;
         derecha = verifyRight(jugador);
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> 125f8b79f25b815c8e04d188d867d007ea0c045b
     verifyRight(jugador){
         let columnas = this.columnsMemory;
         for(let columna; columna<=columnas;columna++){
