@@ -95,9 +95,22 @@ document.addEventListener("DOMContentLoaded", function () {
         let mitadDeMitadSegunda = (cantFichas-Math.floor(mitad/2));
 
         fichas = [];
+        let estiloFichas = document.getElementById("selectRivales").value;
+        let estilo = null;
+        if (estiloFichas == "cristales"){
+            estilo = {
+                j1:"img/fichaAzul.png",
+                j2:"img/ficha.png"
+            };
+        }else if(estiloFichas== "redes"){
+            estilo = {
+                j1:"img/fichawas.png",
+                j2:"img/fichatwi.png"
+            };
+        }
         for (let i = 0; i < mitad; i++) {
             if(i<mitadDeMitadPrimera){
-                let ficha = new Ficha(40, yAxis, ctx, "blue", "player1");
+                let ficha = new Ficha(40, yAxis, ctx, "jugador1", estilo);
                 fichas.push(ficha);
                 yAxis += 30;
                 if(i==mitadDeMitadPrimera-1){
@@ -105,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
             else{
-                let ficha = new Ficha(100, yAxis, ctx, "blue", "player1");
+                let ficha = new Ficha(100, yAxis, ctx, "jugador1", estilo);
                 fichas.push(ficha);
                 yAxis += 30;
             }
@@ -113,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
         yAxis = 30;
         for (let i = mitad; i < cantFichas; i++) {
             if(i<mitadDeMitadSegunda){
-                let ficha = new Ficha(940, yAxis, ctx, "red", "player2");
+                let ficha = new Ficha(940, yAxis, ctx, "jugador2", estilo);
                 fichas.push(ficha);
                 yAxis += 30;
                 if(i==mitadDeMitadSegunda-1){
@@ -121,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
             else{
-                let ficha = new Ficha(1000, yAxis, ctx, "red", "player2");
+                let ficha = new Ficha(1000, yAxis, ctx, "jugador2", estilo);
                 fichas.push(ficha);
                 yAxis += 30;
             }
