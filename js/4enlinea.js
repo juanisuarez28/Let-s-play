@@ -91,14 +91,16 @@ document.addEventListener("DOMContentLoaded", function () {
         let cantFichas = rows *  columns;
         let yAxis = 30;
         let mitad = Math.floor(cantFichas / 2);
-        let mitadDeMitad = (cantFichas-Math.floor(mitad/2));
+        let mitadDeMitadPrimera = (mitad-Math.floor(mitad/2));
+        let mitadDeMitadSegunda = (cantFichas-Math.floor(mitad/2));
 
+        fichas = [];
         for (let i = 0; i < mitad; i++) {
-            if(i<mitad/2){
+            if(i<mitadDeMitadPrimera){
                 let ficha = new Ficha(40, yAxis, ctx, "blue", "player1");
                 fichas.push(ficha);
                 yAxis += 30;
-                if(i==Math.floor(mitad/2)){
+                if(i==mitadDeMitadPrimera-1){
                     yAxis = 30;
                 }
             }
@@ -110,11 +112,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         yAxis = 30;
         for (let i = mitad; i < cantFichas; i++) {
-            if(i<mitadDeMitad){
+            if(i<mitadDeMitadSegunda){
                 let ficha = new Ficha(940, yAxis, ctx, "red", "player2");
                 fichas.push(ficha);
                 yAxis += 30;
-                if(i==mitadDeMitad-1){
+                if(i==mitadDeMitadSegunda-1){
                     yAxis = 30;
                 }
             }
