@@ -1,13 +1,14 @@
 class Tablero{
 
 
-    constructor(canvas,goalConfig, context) {
+    constructor(canvas,goalConfig,boardStyle, context) {
         this.canvas = canvas;
         this.columns = parseInt(goalConfig) + 3;
         this.rows = parseInt(goalConfig) + 3;
+        this.boardStyle = boardStyle;
         this.ctx = context;
-        this.boardWidth = canvas.clientWidth * 0.70; //obtiene el ancho del tablero
-        this.boardHeight = canvas.clientHeight *0.70; //obtiene el largo del tablero
+        this.boardWidth = canvas.clientWidth * 0.60; //obtiene el ancho del tablero
+        this.boardHeight = canvas.clientHeight *0.60; //obtiene el largo del tablero
         this.columnsMemory = []; //almacena los objetos casilleros que seran renderizados periodicamente
    
     }
@@ -29,22 +30,42 @@ class Tablero{
         let nextY = this.getCoords().yCoord;    //Devuelve ubicación del proximo casillero en Y
         let squareFromEachColumnList = []; //declaro una lista de casilleros auxiliar
 
+        
+        
+        //CONTROLA EL ESTILO SELECCIONADO DEL JUEGO
+        
+        let style = null;
+        if(this.boardStyle === "standard"){
+            style ={
+                        url:"img/casillero_vacio.png",
+                        textColor:"black"
+                    };
+            
+        }else{
+            style = {
+                        url: "img/casillero_vacio2.jpg",
+                        textColor:"bisque"
+            };
+        }
+
+
+        //COMIENZA LA CREACION DE COLUMNAS QUE CONTENGAN CASILLEROS
         for (let x = 0; x < this.rows; x++) {
             squareFromEachColumnList = [];           //me aseguro de tener vacia la lista de filas auxiliar
-            for (let y = 0; y < this.columns; y++) {
 
+            for (let y = 0; y < this.columns; y++) {
 
                 let ySuffix = y-1;      // esta variable permite diferenciar casilleros de entrada de los casilleros comunes
                 let squareName = "" + x + (y-1);              //almaceno nombre de casillero
-                let enteringSquareName = x;                   //almaceno nombre de casillero de entrada
                 
                 //CREO UN NUEVO CASILLERO
-                var square = this.createSquare(nextX,nextY,proportions,squareName,ySuffix,enteringSquareName); 
+                var square = this.createSquare(nextX,nextY,proportions,squareName,ySuffix,style); //creo casilla
 
-                nextY += square.getSquareHeight();   //deslizamos punto dibujo de columna
+                nextY += square.getSquareHeight();   //deslizamos punto de dibujo para siguiente columna en eje Y
                 
                 squareFromEachColumnList.push(square);     //almaceno el casillero de cada fila en el arreglo
             }
+            
             //DESLIZAMIENTOS
             nextY = this.getCoords().yCoord;         //deslizamos a posicion inicial del eje Y
             nextX += square.getSquareWidth();        //deslizamos sobre el eje X para comenzar la siguiente columna
@@ -56,16 +77,16 @@ class Tablero{
 
 
     //METODO QUE FABRICA DISTINTOS TIPOS DE CASILLEROS
-    createSquare(nextX,nextY,proportions,squareName,ySuffix,enteringSquareName){
+    createSquare(nextX,nextY,proportions,squareName,ySuffix,boardStyleURL){
         let newSquare;
-        if(ySuffix>=0){
+        if(ySuffix>=0){ //Pregunto si no son el primer indice de cada columna
              newSquare = new Square(nextX, nextY,
                 proportions.width, proportions.height, "vacio", this.ctx,
-                squareName); //se instancia casillero comun
-        }else{
+                squareName,boardStyleURL); //se instancia casillero comun
+        }else{  //si es el primer indice de columna, significa que es casilla para depositar ficha
              newSquare = new Square(nextX, nextY,
                 proportions.width, proportions.height, "entrada", this.ctx,
-                enteringSquareName); //se instancia casillero de entrada
+                squareName,boardStyleURL); //se instancia casillero de entrada
         }
         return newSquare;
     }
@@ -74,12 +95,11 @@ class Tablero{
 
     // RENDERIZACION DE CASILLEROS EN BASE A MEMORIA
     drawBoard(){
-        
         for(let x = 0; x < this.columnsMemory.length; x++){
             let rows = this.columnsMemory[x];
             for(let y = 0; y < rows.length; y++){
                 let squareToDraw = rows[y];
-                squareToDraw.drawSquare();
+                squareToDraw.draw();
             }
         }
     }
@@ -95,7 +115,7 @@ class Tablero{
     proportions() {                    //retorna medidas proporcionales para casilleros
         return {
             width: (this.boardWidth / this.columns),
-            height: (this.boardHeight / this.rows)
+            height: (this.boardWidth / this.rows)
         };
     }
 
@@ -103,11 +123,11 @@ class Tablero{
     //METODO DE CENTRADO DE TABLERO EN BASE AL CANVAS
     getCoords(){
         let centerX = this.boardWidth/2;
-        let centerY = this.boardHeight/2;
+        let centerY = this.boardHeight/3;
     
         return {
-            xCoord:centerX - ((this.boardWidth*0.60)/2),
-            yCoord:centerY - ((this.boardHeight*0.60)/2)
+            xCoord:centerX - ((this.boardWidth*0.40)/2),
+            yCoord:centerY - ((this.boardHeight*0.55)/2)
         };
     }
 

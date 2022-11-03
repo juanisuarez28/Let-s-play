@@ -278,6 +278,9 @@ canvas{
     background-color: gainsboro;
 }
 
+label{
+    color: bisque;
+}
 
 
 /* responsive */

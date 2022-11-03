@@ -10,7 +10,7 @@ let canvas=document.getElementById('canvas');
 
  /** @type {CanvasRenderingContext2D} */
 let ctx=canvas.getContext('2d');
-let board = new Tablero(canvas,0,null);
+let board = new Tablero(canvas,0,0,null);
 let fichas=[];
 
 
@@ -76,7 +76,8 @@ function mouseUp() {
 function createBoard(){
     board.clearBoard(); //limpia tablero
     let goal = parseInt(document.getElementById("selectJuego").value); //toma la configuracion del modo de juego
-    board = new Tablero(canvas,goal,ctx); //instancia un tablero nuevo
+    let boardStyle = document.getElementById("selectBoard").value; //toma la configuracion del estilo de tablero
+    board = new Tablero(canvas,goal,boardStyle,ctx); //instancia un tablero nuevo
     board.create(); //crea las casillas
     board.drawBoard(); //dibuja las casillas
 }
