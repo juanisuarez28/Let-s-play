@@ -8,9 +8,19 @@ class Ficha{
         this.radio=25; //reemplace Width por radio!!!!!!!!!!!!!!!
         this.h=50;
         this.selected=false;
-
+        this.initialPosX = x;
+        this.initialPosY = y;
     }
 
+    setInitialPos(){
+        this.x = this.initialPosX;
+        this.y = this.initialPosY;
+    }
+
+    getPlayer(){
+        return this.player;
+    }
+ 
     draw(){
         this.ctx.beginPath();
         if(this.player=="jugador1"){
@@ -41,8 +51,8 @@ class Ficha{
     }
 
     move(x,y){
-        this.x=x - (this.radio/2);
-        this.y=y - (this.radio/2);
+        this.x=x ;
+        this.y=y ;
     }
 
     isSelected(){
@@ -57,8 +67,5 @@ class Ficha{
 
 
     
-    /*checkSelected(x, y){   rectangulo
-        return x>this.x && x< this.x + this.radio //reemplace Width por radio!!!!!!!!!!!!!!!
-        && y>this.y && y < this.y+this.radio;
-    }*/
+  
 }

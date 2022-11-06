@@ -20,6 +20,9 @@ class Tablero {
     getRows() {
         return this.rows;
     }
+    getColumnsMemory(){
+        return this.columnsMemory;
+    }
 
 
     //CREACION DE CASILLEROS SEGUN CONFIGURACION DEL JUEGO Y ALMACENAMIENTO A MEMORIA
@@ -79,11 +82,11 @@ class Tablero {
     createSquare(nextX, nextY, proportions, squareName, ySuffix, boardStyleURL) {
         let newSquare;
         if (ySuffix >= 0) { //Pregunto si no son el primer indice de cada columna
-            newSquare = new Square(nextX, nextY,
+            newSquare = new RegularSquare(nextX, nextY,
                 proportions.width, proportions.height, "vacio", this.ctx,
                 squareName, boardStyleURL); //se instancia casillero comun
         } else {  //si es el primer indice de columna, significa que es casilla para depositar ficha
-            newSquare = new Square(nextX, nextY,
+            newSquare = new EntrySquare(nextX, nextY,
                 proportions.width, proportions.height, "entrada", this.ctx,
                 squareName, boardStyleURL); //se instancia casillero de entrada
         }
