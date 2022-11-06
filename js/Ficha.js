@@ -35,8 +35,9 @@ class Ficha{
     }
 
     checkSelected(x, y){
-        return x>this.x && x< this.x + this.radio //reemplace Width por radio!!!!!!!!!!!!!!!
-        && y>this.y && y < this.y+this.radio;
+        let _x = this.x - x;
+        let _y = this.y - y;
+        return Math.sqrt(_x * _x + _y * _y) < this.radio;
     }
 
     move(x,y){
@@ -51,4 +52,13 @@ class Ficha{
     setSelected(selected){
         this.selected=selected;
     }
+
+
+
+
+    
+    /*checkSelected(x, y){   rectangulo
+        return x>this.x && x< this.x + this.radio //reemplace Width por radio!!!!!!!!!!!!!!!
+        && y>this.y && y < this.y+this.radio;
+    }*/
 }
