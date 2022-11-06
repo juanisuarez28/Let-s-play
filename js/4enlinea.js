@@ -37,11 +37,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function mouseDown(event) {
-        let x = event.clientX - event.currentTarget.offsetLeft;
+        let x = event.clientX - event.currentTarget.offsetLeft;//TOMA COORDENADAS
         let y = event.clientY - event.currentTarget.offsetTop;
-        
         fichas.forEach(ficha => {
-            if (ficha.checkSelected(x, y)) {
+            if (ficha.checkSelected(x, y)) {   //COMPRUEBA UBICACION DEL MOUSE EN LA FICHA
                 console.log("seleccionada")
                 ficha.setSelected(true);
             } else {
@@ -52,14 +51,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     function mouseMove(event) {
-        let x = event.clientX - event.currentTarget.offsetLeft;
+        let x = event.clientX - event.currentTarget.offsetLeft; //TOMA UBICACION DEL MOUSE
         let y = event.clientY - event.currentTarget.offsetTop;
-
+        let fichaSelected = [];                               //ARREGLO AUXILIAR
+        fichaSelected.length = 1;                             //EL ARREGLO LIMITADO A 1 DE TAMANIO
         fichas.forEach(ficha => {
             if (ficha.isSelected()) {
-                ficha.move(x, y);
+                fichaSelected = [];                           //LIMPIO ARREGLO CADA VEZ QUE SELECCIONO
+                fichaSelected.push(ficha);                    //PUSHEO LA FICHA SELECCIONADA 
             }
         });
+        fichaSelected[0].move(x, y);                         //MUEVO FICHA SELECCIONADA, EVITA SELECCION MULTIPLE
     }
 
     function mouseUp() {
