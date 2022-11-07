@@ -1,6 +1,4 @@
 class Tablero {
-
-
     constructor(canvas, goalConfig, boardStyle, context) {
         this.canvas = canvas;
         this.columns = parseInt(goalConfig) + 3;

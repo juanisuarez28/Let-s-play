@@ -128,9 +128,11 @@ document.addEventListener("DOMContentLoaded", function () {
         let columna = colum;
         let finalDeColumna = columna.length-1;
         for(let casilla = finalDeColumna; casilla>=0; casilla-- ){
-            if(columna[casilla]=="vacio"){
+            let ocupado = columna[casilla].estaOcupado();
+            if(!ocupado){
                 columna[casilla].setContent(ficha.getPlayer());
-                columna[casilla].setStyle(ficha.getEstilo(ficha.getPlayer()));
+                columna[casilla].insertarFicha(ficha.getEstilo(ficha.getPlayer()));
+                break;
             }
         }
     }
@@ -181,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function createBoard() {
         board.clearBoard(); //limpia tablero
         let goal = parseInt(document.getElementById("selectJuego").value); //toma la configuracion del modo de juego
-        let boardStyle = document.getElementById("selectBoard").value; //toma la configuracion del estilo de tablero
+        let boardStyle = "standard" //toma la configuracion del estilo de tablero
         board = new Tablero(canvas, goal, boardStyle, ctx); //instancia un tablero nuevo
         board.create(); //crea las casillas
         board.drawBoard(); //dibuja las casillas
