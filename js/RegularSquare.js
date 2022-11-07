@@ -8,6 +8,7 @@ class RegularSquare extends Square {
     }
 
 
+
     getContent(){
         return this.content;
     }

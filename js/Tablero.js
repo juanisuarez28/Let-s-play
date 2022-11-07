@@ -8,7 +8,7 @@ class Tablero {
         this.boardWidth = canvas.clientWidth * 0.60; //obtiene el ancho del tablero
         this.boardHeight = canvas.clientHeight * 0.60; //obtiene el largo del tablero
         this.columnsMemory = []; //almacena los objetos casilleros que seran renderizados periodicamente
-
+        
     }
 
     //GETTERS
@@ -147,9 +147,11 @@ class Tablero {
                 }
             }
          }
+         let casillero=this.columnsMemory[numColumna][parseInt(numCasillero)+1+1];////No pude acceder al casillero para usar el getContent() y asi saber por quien está ocupado
+         console.log(casillero);//////////////////////////////////////////////////////
 
          //llamamos a cada una de las funciones encargadas de verificar cada direccion
-         if(verificarVertical(goal, jugador, numCasillero, numColumna)||verificarHorizontal(goal, jugador, numCasillero, numColumna)||verificarDiagonalDerechaArriba(goal, jugador, numCasillero, numColumna)||verificarDiagonalIzquierdaArriba(goal, jugador, numCasillero, numColumna)){
+         if(this.verificarVertical(goal, jugador, numCasillero, numColumna)||this.verificarHorizontal(goal, jugador, numCasillero, numColumna)||this.verificarDiagonalDerechaArriba(goal, jugador, numCasillero, numColumna)||this.verificarDiagonalIzquierdaArriba(goal, jugador, numCasillero, numColumna)){
             console.log("ganaste wachin");
          }
          
@@ -157,17 +159,16 @@ class Tablero {
 
     verificarVertical(goal, jugador, numCasillero, numColumna){
         let contador=0;
-        let columna=this.columnsMemory[numColumna];
         //primero hacia abajo
         for(let i=0;i<=goal;i++){
-            if(columna[numCasillero-1+i].getContent()==jugador){
+            if(this.columnsMemory[numColumna][parseInt(numCasillero)+1+i].getContent()==jugador){
                 contador+=1;
             }
         }
 
         //despues hacia arriba
         for(let i=0;i<=goal;i++){
-            if(columna[numCasillero-1-i].getContent()==jugador){
+            if(this.columnsMemory[numColumna][parseInt(numCasillero)+1-i].getContent()==jugador){
                 contador+=1;
             }
         }
@@ -180,15 +181,15 @@ class Tablero {
         }
     }
 
-    verificarHorizontal(goal, jugador, numCasillero, numColumna){
+    // verificarHorizontal(goal, jugador, numCasillero, numColumna){
         
-    }
-    verificarDiagonalDerechaArriba(goal, jugador, numCasillero, numColumna){
+    // }
+    // verificarDiagonalDerechaArriba(goal, jugador, numCasillero, numColumna){
         
-    }
-    verificarDiagonalIzquierdaArriba(goal, jugador, numCasillero, numColumna){
+    // }
+    // verificarDiagonalIzquierdaArriba(goal, jugador, numCasillero, numColumna){
         
-    }
+    // }
 
 /*
     verify(jugador){

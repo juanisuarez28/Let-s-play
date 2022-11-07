@@ -6,7 +6,7 @@ class Square {
         this.squareHeight = squareHeight;
         this.ctx = context;
     }
-
+    
 
     getX() {
         return this.x;
