@@ -83,12 +83,11 @@ class Tablero {
         let newSquare;
         if (ySuffix >= 0) { //Pregunto si no son el primer indice de cada columna
             newSquare = new RegularSquare(nextX, nextY,
-                proportions.width, proportions.height, "vacio", this.ctx,
+                proportions.width, proportions.height, this.ctx,
                 squareName, boardStyleURL); //se instancia casillero comun
         } else {  //si es el primer indice de columna, significa que es casilla para depositar ficha
             newSquare = new EntrySquare(nextX, nextY,
-                proportions.width, proportions.height, "entrada", this.ctx,
-                squareName, boardStyleURL); //se instancia casillero de entrada
+                proportions.width, proportions.height, this.ctx); //se instancia casillero de entrada
         }
         return newSquare;
     }

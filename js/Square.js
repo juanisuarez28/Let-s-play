@@ -1,11 +1,10 @@
 class Square {
 
-    constructor(x, y, squareWidth, squareHeight, content, context) {
+    constructor(x, y, squareWidth, squareHeight, context) {
         this.x = x;
         this.y = y;
         this.squareWidth = squareWidth;
         this.squareHeight = squareHeight;
-        this.content = content;
         this.ctx = context;
     }
 
@@ -26,10 +25,7 @@ class Square {
         return this.squareWidth;
     }
 
-    getContent() {
-        return this.content;
-    }
-
+   
     draw()
     {
         

@@ -20,6 +20,15 @@ class Ficha{
     getPlayer(){
         return this.player;
     }
+
+    getEstilo(player){
+        if(player=="jugador1"){
+            return this.estilo.j1;
+        }else if(player=="jugador2"){
+            return this.estilo.j2;
+        }
+       
+    }
  
     draw(){
         this.ctx.beginPath();

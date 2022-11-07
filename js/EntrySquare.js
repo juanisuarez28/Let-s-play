@@ -2,10 +2,19 @@ class EntrySquare extends Square {
     constructor(x, y, squareWidth, squareHeight, content, context) {
         super(x, y, squareWidth, squareHeight, content, context);
         this.color = "lightblue";
+        this.selected = false;
     }
 
     setColor(color){
         this.color = color ;
+    }
+
+    isSelected(){
+        return this.selected;
+    }
+
+    setSelected(value){
+        this.selected = value;
     }
 
     draw() {              //se dibuja casillero

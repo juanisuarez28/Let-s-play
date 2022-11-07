@@ -72,6 +72,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+
+
     function mouseMove(event) {
         let x = event.clientX - canvas.offsetLeft; //TOMA UBICACION DEL MOUSE
         let y = event.clientY - canvas.offsetTop;
@@ -100,26 +102,40 @@ document.addEventListener("DOMContentLoaded", function () {
         let x = event.clientX - canvas.offsetLeft; //TOMA UBICACION DEL MOUSE
         let y = event.clientY - canvas.offsetTop;
         isMouseDown = false;
-        let tieneEntrada = entrySelected(x, y);
-        let fichaSeleccionada = currentFichaSelected();
+        let columna = entrySelected(x, y);             //CHEQUEA CASILLA DE ENTRADA Y DEVUELVE LA COLUMNA
+        let entrada = columna[0];
+        let fichaSeleccionada = currentFichaSelected();     //DEVUELVE FICHA SELECCIONADA
 
-        fichaSeleccionada.setInitialPos();
+        fichaSeleccionada.setInitialPos();                  //DEVUELVE FICHA A POSICION ORIGINAL
         fichaSeleccionada.setSelected(false);
 
 
-        if (tieneEntrada) {
-            fichaSeleccionada.setInitialPos();
-            fichaSeleccionada.setSelected(false);
-            if (fichaSeleccionada.getPlayer() == "jugador1") {
-                fichasJ1.splice(fichaSeleccionada, 1);
-            } else {
-                fichasJ2.splice(fichaSeleccionada, 1);
+        if(entrada.isSelected){
+            if (fichaSeleccionada.getPlayer() == "jugador1") {  //SI ES JUGADOR 1
+                insertarEnColumna(columna,fichaSeleccionada);
+                fichasJ1.splice(fichaSeleccionada, 1);          //ELIMINA FICHA
+            } else {                                            //SINO ES JUGADOR 2
+                insertarEnColumna(columna,fichaSeleccionada);
+                fichasJ2.splice(fichaSeleccionada, 1);         //ELIMINA FICHA
             }
         }
+       
 
     }
 
-    function currentFichaSelected() {
+    function insertarEnColumna(colum, ficha){
+        let columna = colum;
+        let finalDeColumna = columna.length-1;
+        for(let casilla = finalDeColumna; casilla>=0; casilla-- ){
+            if(columna[casilla]=="vacio"){
+                columna[casilla].setContent(ficha.getPlayer());
+                columna[casilla].setStyle(ficha.getEstilo(ficha.getPlayer()));
+            }
+        }
+    }
+
+
+    function currentFichaSelected() {  //METODO QUE BUSCA UNA FICHA SELECCIONADA
         let salida;
         fichasJ1.forEach(ficha => {
             if (ficha.isSelected()) {
@@ -134,23 +150,21 @@ document.addEventListener("DOMContentLoaded", function () {
         return salida;
     }
 
-    function entrySelected(x, y) {
-        let salida = 0;
-        let entradas = [];
-        entradas = board.getColumnsMemory();
-        entradas.forEach(entrada => {
-            if (entrada[0].checkSelected(x, y)) {
-                salida = 1;
-                entrada[0].setColor("white");
+    function entrySelected(x, y) {    //METODO QUE BUSCA LA CASILLA DE ENTRADA APUNTADA
+        let columnas = [];
+        let salida = [];
+        columnas = board.getColumnsMemory(); //llamo las columnas completas del tablero
+        columnas.forEach(columna => {    //recorro to
+            if (columna[0].checkSelected(x, y)) {
+                salida = columna;
+                columna[0].setColor("white");
+                columna[0].setSelected(true);
             } else {
-                entrada[0].setColor("lightblue");
+                columna[0].setColor("lightblue");
+                columna[0].setSelected(false);
             }
         });
-        if (salida > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return salida;
     }
 
 

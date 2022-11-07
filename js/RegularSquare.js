@@ -1,12 +1,23 @@
 class RegularSquare extends Square {
-    constructor(x, y, squareWidth, squareHeight, content, context, squareName, style) {
-        super(x, y, squareWidth, squareHeight, content, context);
+    constructor(x, y, squareWidth, squareHeight, context, squareName, style) {
+        super(x, y, squareWidth, squareHeight, context);
         this.squareName = squareName;
         this.style = style;
+        this.content = "vacio";
     }
 
 
+    getContent(){
+        return this.content;
+    }
     
+    setContent(content){
+        this.content = content;
+    }
+
+    setStyle(style){
+        this.style = style;
+    }
 
 
     draw() {              //se dibuja casillero
