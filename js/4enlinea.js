@@ -39,6 +39,9 @@ document.addEventListener("DOMContentLoaded", function () {
         canvas.onmouseup = mouseUp;
     }
 
+////////////////////////////////////////////////////////////////////////////////////////////
+    //EVENTO CLICK PARA SELECCIONAR FICHA
+    /////////////////////////////////////////////////////////////////////////////////////////////////
     function mouseDown(event) {
         let x = event.clientX - canvas.offsetLeft;//TOMA COORDENADAS
         let y = event.clientY - canvas.offsetTop;
@@ -71,9 +74,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-
-
-
+//////////////////////////////////////////////////////////////////////////////////
+ //EVENTO MOVE PARA MOVER FICHAS
+/////////////////////////////////////////////////////////////////////////////////////
     function mouseMove(event) {
         let x = event.clientX - canvas.offsetLeft; //TOMA UBICACION DEL MOUSE
         let y = event.clientY - canvas.offsetTop;
@@ -96,8 +99,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
-
+//////////////////////////////////////////////////////////////////////////////////
+ //EVENTO SOLTAR CLICK PARA SOLTAR FICHA Y COMENZAR A LLENAR LAS COLUMNAS Y DIBUJAR CASILLAS LLENAS
+///////////////////////////////////////////////////////////////////////////////
     function mouseUp(event) {
         let x = event.clientX - canvas.offsetLeft; //TOMA UBICACION DEL MOUSE
         let y = event.clientY - canvas.offsetTop;
@@ -109,7 +113,6 @@ document.addEventListener("DOMContentLoaded", function () {
         fichaSeleccionada.setInitialPos();                  //DEVUELVE FICHA A POSICION ORIGINAL
         fichaSeleccionada.setSelected(false);
 
-
         if(entrada.isSelected){
             if (fichaSeleccionada.getPlayer() == "jugador1") {  //SI ES JUGADOR 1
                 insertarEnColumna(columna,fichaSeleccionada);
@@ -119,8 +122,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 fichasJ2.splice(fichaSeleccionada, 1);         //ELIMINA FICHA
             }
         }
-       
-
     }
 
     function insertarEnColumna(colum, ficha){
@@ -134,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-
+    //METODOS AUXILIARES PARA EL SOLTADO DE FICHAS
     function currentFichaSelected() {  //METODO QUE BUSCA UNA FICHA SELECCIONADA
         let salida;
         fichasJ1.forEach(ficha => {
@@ -169,10 +170,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+///////////////////////////////////////FIN DE AREA DE EVENTOS
+
+
+
 
 
     //Inicia el juego y se crea el tablero
-
 
     function createBoard() {
         board.clearBoard(); //limpia tablero

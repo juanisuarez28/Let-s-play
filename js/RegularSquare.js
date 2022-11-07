@@ -2,7 +2,8 @@ class RegularSquare extends Square {
     constructor(x, y, squareWidth, squareHeight, context, squareName, style) {
         super(x, y, squareWidth, squareHeight, context);
         this.squareName = squareName;
-        this.style = style;
+        this.style = style.url;
+        this.fontColor = style.textColor;
         this.content = "vacio";
     }
 
@@ -37,10 +38,10 @@ class RegularSquare extends Square {
         context.fillRect(this.x - borderWidth, this.y - borderWidth, this.squareWidth + offset, this.squareHeight + offset);
 
         //SELECCIONA LA URL DE LA IMAGEN DE CASILLA
-        img.src = this.style.url;
+        img.src = this.style;
         //DIBUJA LA IMAGEN
         context.drawImage(img, this.x, this.y, this.squareWidth, this.squareHeight);
-        context.fillStyle = this.style.textColor;
+        context.fillStyle = this.fontColor;
         context.font = "14px Arial";
         context.fillText(name, (this.x - 8) + this.squareWidth / 2, (this.y + 8) + this.squareHeight / 2);
 
