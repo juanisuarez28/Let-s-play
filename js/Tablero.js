@@ -130,6 +130,66 @@ class Tablero {
         };
     }
 
+
+
+    verificarSiGano(goal, jugador, numCasillero){
+        //primero identificar en que columna esta el casillero donde se inserto la ficha
+        let iteradorColumnas=0;
+        let numColumna;
+
+        if(numCasillero<10){
+            numColumna=iteradorColumnas;
+        }else{
+            for(let i=1;i<=8;i++){
+                if((numCasillero>=(i*10))&&(numCasillero<=(i*10+7))){
+                    numColumna=i;
+                    break;
+                }
+            }
+         }
+
+         //llamamos a cada una de las funciones encargadas de verificar cada direccion
+         if(verificarVertical(goal, jugador, numCasillero, numColumna)||verificarHorizontal(goal, jugador, numCasillero, numColumna)||verificarDiagonalDerechaArriba(goal, jugador, numCasillero, numColumna)||verificarDiagonalIzquierdaArriba(goal, jugador, numCasillero, numColumna)){
+            console.log("ganaste wachin");
+         }
+         
+    }
+
+    verificarVertical(goal, jugador, numCasillero, numColumna){
+        let contador=0;
+        let columna=this.columnsMemory[numColumna];
+        //primero hacia abajo
+        for(let i=0;i<=goal;i++){
+            if(columna[numCasillero-1+i].getContent()==jugador){
+                contador+=1;
+            }
+        }
+
+        //despues hacia arriba
+        for(let i=0;i<=goal;i++){
+            if(columna[numCasillero-1-i].getContent()==jugador){
+                contador+=1;
+            }
+        }
+
+        //finalmente si el contador es igual al modo de juego seleccionado, se gana el juego
+        if(contador==goal){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    verificarHorizontal(goal, jugador, numCasillero, numColumna){
+        
+    }
+    verificarDiagonalDerechaArriba(goal, jugador, numCasillero, numColumna){
+        
+    }
+    verificarDiagonalIzquierdaArriba(goal, jugador, numCasillero, numColumna){
+        
+    }
+
 /*
     verify(jugador){
         let columnas = this.columnsMemory;

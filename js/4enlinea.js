@@ -125,6 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function insertarEnColumna(colum, ficha){
+        let goal = parseInt(document.getElementById("selectJuego").value);
         let columna = colum;
         let finalDeColumna = columna.length-1;
         for(let casilla = finalDeColumna; casilla>=0; casilla-- ){
@@ -132,9 +133,11 @@ document.addEventListener("DOMContentLoaded", function () {
             if(!ocupado){
                 columna[casilla].setContent(ficha.getPlayer());
                 columna[casilla].insertarFicha(ficha.getEstilo(ficha.getPlayer()));
+                board.verificarSiGano(goal, ficha.getPlayer(), columna[casilla].getSquareName());
                 break;
             }
         }
+        
     }
 
     //METODOS AUXILIARES PARA EL SOLTADO DE FICHAS
@@ -179,11 +182,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     //Inicia el juego y se crea el tablero
-
     function createBoard() {
         board.clearBoard(); //limpia tablero
-        let goal = parseInt(document.getElementById("selectJuego").value); //toma la configuracion del modo de juego
         let boardStyle = "standard" //toma la configuracion del estilo de tablero
+        let goal = parseInt(document.getElementById("selectJuego").value); //toma la configuracion del modo de juego
         board = new Tablero(canvas, goal, boardStyle, ctx); //instancia un tablero nuevo
         board.create(); //crea las casillas
         board.drawBoard(); //dibuja las casillas
