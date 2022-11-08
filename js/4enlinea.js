@@ -46,26 +46,17 @@ document.addEventListener("DOMContentLoaded", function () {
         let x = event.clientX - canvas.offsetLeft;//TOMA COORDENADAS
         let y = event.clientY - canvas.offsetTop;
         isMouseDown = true;
-        fichaSelection(x, y);
+        fichaSelection(fichasJ1, x, y);
+        fichaSelection(fichasJ2, x, y);
     }
 
-    function fichaSelection(x, y) {
+    function fichaSelection(listaSegunJugador, x, y) {
         let fichaSelected = [];
         fichaSelected.length = 1;
-        fichasJ1.forEach(ficha => {
+        listaSegunJugador.forEach(ficha => {
             if (ficha.checkSelected(x, y)) {   //COMPRUEBA UBICACION DEL MOUSE EN LA FICHA
                 console.log("seleccionada")
                 fichaSelected = [];                           //LIMPIO ARREGLO CADA VEZ QUE SELECCIONO
-                fichaSelected.push(ficha);
-                fichaSelected[0].setSelected(true);
-            } else {
-                ficha.setSelected(false);
-            }
-        });
-        fichasJ2.forEach(ficha => {
-            if (ficha.checkSelected(x, y)) {   //COMPRUEBA UBICACION DEL MOUSE EN LA FICHA
-                console.log("seleccionada")
-                fichaSelected = [];
                 fichaSelected.push(ficha);
                 fichaSelected[0].setSelected(true);
             } else {
