@@ -14,19 +14,23 @@ document.addEventListener("DOMContentLoaded", function () {
     let fichas = [];
     let fichasJ1 = [];
     let fichasJ2 = [];
-    let jugador1 = "jugador1";
-    let jugador2 = "jugador2";
     let isMouseDown = false;
+    let opciones = document.getElementById("opciones");
+    let jugando = document.getElementById("jugando");
 
 
 
-
-    //por ahora se ejecuta sola, despues se ejecutaria con el botonJugar
+    //se ejecutaria con el botonJugar
     function init() {
         createBoard();
         addFicha();
         dibujarFichas();
         initEvents();
+        setTimer();
+        opciones.classList.remove("visible");
+        opciones.classList.add("oculto");
+        jugando.classList.remove("oculto");
+        jugando.classList.add("visible");
         setInterval(dibujarFichas, 20);
 
     }
@@ -46,19 +50,23 @@ document.addEventListener("DOMContentLoaded", function () {
         let x = event.clientX - canvas.offsetLeft;//TOMA COORDENADAS
         let y = event.clientY - canvas.offsetTop;
         isMouseDown = true;
-        fichaSelection(fichasJ1, x, y);
-        fichaSelection(fichasJ2, x, y);
+        fichaSelection(fichasJ1, x, y, "j1");
+        fichaSelection(fichasJ2, x, y, "j2");
     }
 
-    function fichaSelection(listaSegunJugador, x, y) {
+    function fichaSelection(listaSegunJugador, x, y, jugador) {
         let fichaSelected = [];
         fichaSelected.length = 1;
         listaSegunJugador.forEach(ficha => {
             if (ficha.checkSelected(x, y)) {   //COMPRUEBA UBICACION DEL MOUSE EN LA FICHA
-                console.log("seleccionada")
-                fichaSelected = [];                           //LIMPIO ARREGLO CADA VEZ QUE SELECCIONO
-                fichaSelected.push(ficha);
-                fichaSelected[0].setSelected(true);
+                if(turno==jugador){
+                    console.log("seleccionada")
+                    fichaSelected = [];                           //LIMPIO ARREGLO CADA VEZ QUE SELECCIONO
+                    fichaSelected.push(ficha);
+                    fichaSelected[0].setSelected(true);
+                }else{
+                    alert("Es turno del otro jugador");
+                }
             } else {
                 ficha.setSelected(false);
             }
@@ -75,14 +83,14 @@ document.addEventListener("DOMContentLoaded", function () {
         fichaSelected.length = 1;                             //EL ARREGLO LIMITADO A 1 DE TAMANIO
         fichasJ1.forEach(ficha => {
             if (isMouseDown && ficha.isSelected()) {
-                fichaSelected = [];                           //LIMPIO ARREGLO CADA VEZ QUE SELECCIONO
-                fichaSelected.push(ficha);                    //PUSHEO LA FICHA SELECCIONADA 
+                    fichaSelected = [];                           //LIMPIO ARREGLO CADA VEZ QUE SELECCIONO
+                    fichaSelected.push(ficha);                    //PUSHEO LA FICHA SELECCIONADA 
             }
         });
         fichasJ2.forEach(ficha => {
             if (isMouseDown && ficha.isSelected()) {
-                fichaSelected = [];                            //LIMPIO ARREGLO CADA VEZ QUE SELECCIONO
-                fichaSelected.push(ficha);                    //PUSHEO LA FICHA SELECCIONADA 
+                    fichaSelected = [];                            //LIMPIO ARREGLO CADA VEZ QUE SELECCIONO
+                    fichaSelected.push(ficha);                    //PUSHEO LA FICHA SELECCIONADA 
             }
 
         });
@@ -109,9 +117,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if(entrada.isSelected){
             if (fichaSeleccionada.getPlayer() == "jugador1") {  //SI ES JUGADOR 1
                 insertarEnColumna(columna,fichaSeleccionada,numeroColumna);
+                changeTurn();
                 fichasJ1.splice(fichaSeleccionada, 1);          //ELIMINA FICHA
             } else {                                            //SINO ES JUGADOR 2
                 insertarEnColumna(columna,fichaSeleccionada,numeroColumna);
+                changeTurn();
                 fichasJ2.splice(fichaSeleccionada, 1);         //ELIMINA FICHA
             }
         }
@@ -132,7 +142,11 @@ document.addEventListener("DOMContentLoaded", function () {
                                             y:casilla
                                         };
                                         console.log("se inserto ficha en " + columna[casilla].getSquareName() )
-                board.verificarSiGano(goal, ficha.getPlayer(), columna[casilla].getSquareName(),posicionCasillero);
+                
+                if(board.verificarSiGano(goal, ficha.getPlayer(), columna[casilla].getSquareName(),posicionCasillero)==true){
+                    setTimeout(() => alert("El " + ficha.getPlayer() +" gano el juego!"), 500);
+                    setInterval("location.reload()",500);
+                }
                 break;
             }
         }
@@ -180,9 +194,71 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 ///////////////////////////////////////FIN DE AREA DE EVENTOS
+    let turno="j1";
+    let timer;
+    function setTimer(){
 
 
+        let minutes = 1;
+        let seconds = 30;
+        let minutestxt = document.getElementById("minutestxt");
+        let secondstxt = document.getElementById("secondstxt");
+        let mostrarTurno=document.getElementById("mostrarTurno");
 
+        if (turno == "j1") {
+            mostrarTurno.innerHTML="Jugador 1";
+            
+        }else{
+
+            mostrarTurno.innerHTML="Jugador 2";
+            
+        }
+        minutestxt.innerHTML = minutes;
+        secondstxt.innerHTML = seconds;
+        timer = setInterval(() => {
+            if (minutes == 1) {
+                if(seconds >= 1){
+                    if(seconds <= 10){
+                        seconds--;
+                        secondstxt.innerHTML = "0" + seconds;
+                    }
+                    else{
+                        seconds--;
+                        secondstxt.innerHTML = seconds;}
+                }
+                else if(seconds == 0){
+                    minutes = 0;
+                    seconds = 59;
+                    minutestxt.innerHTML = minutes;
+                    secondstxt.innerHTML = seconds;
+                }
+            }
+            else if(minutes == 0 && seconds != 0){
+                if(seconds <= 10){
+                    seconds--;
+                    secondstxt.innerHTML = "0" + seconds;
+                }
+                else{
+                seconds--;
+                secondstxt.innerHTML = seconds;
+                }
+            }
+            else if(minutes == 0 && seconds == 0){
+                changeTurn();
+            }
+
+        }, 1000);
+    }
+
+    function changeTurn(){
+        if(turno=="j1"){
+            turno="j2";
+        }else{
+            turno="j1";
+        }
+        clearInterval(timer);
+        setTimer();
+    }
 
 
     //Inicia el juego y se crea el tablero
@@ -260,10 +336,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
-
-
-
     //antes de dibujarlas a la hora de mover las fichas, se borra el registro con la funcion clearCanvas() para simular el desplazamiento
     function dibujarFichas() {
         clearCanvas();
@@ -284,26 +356,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
-
-
     // INICIA EL JUEGO
     document.getElementById("jugar").addEventListener("click", () => {
         clearCanvas();
         init();
     })
 
-    /*
-    
-    //VERIFICAR GANADOR
-    function verificarGanador(){
-        if(board.verify(jugador1)){
-            return "gano el jugador 1";
-        }else if(board.verify(jugador2)){
-            return "gano el jugador 2";
-        }
-        
-    }
-*/
+    document.getElementById("reiniciar").addEventListener("click", () => {
+        setInterval("location.reload()",500);
+    })
+
 }
 );

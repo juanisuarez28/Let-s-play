@@ -131,57 +131,25 @@ class Tablero {
     }
 
 
-    /* ORIGINAL
-        verificarSiGano(goal, jugador, numCasillero){
-            //primero identificar en que columna esta el casillero donde se inserto la ficha
-            let iteradorColumnas=0;
-            let numColumna;
-    
-            if(numCasillero<10){
-                numColumna=iteradorColumnas;
-            }else{
-                for(let i=1;i<=8;i++){
-                    if((numCasillero>=(i*10))&&(numCasillero<=(i*10+7))){
-                        numColumna=i;
-                        numCasillero=numCasillero-(i*10);
-                        break;
-                    }
-                    
-                }
-             }
-             
-             //llamamos a cada una de las funciones encargadas de verificar cada direccion
-            //  this.verificarVertical(goal, jugador, numCasillero, numColumna);
-            //  this.verificarHorizontal(goal, jugador, numCasillero, numColumna);
-    
-            if(this.verificarDiagonalDerechaArriba(goal, jugador, numCasillero, numColumna)){
-                console.log("ganaste");
-            }
-        }
-    */
-
-
     verificarSiGano(goal, jugador, numCasillero, posicionCasillero) {
         //primero identificar en que columna esta el casillero donde se inserto la ficha
-        let iteradorColumnas = 0;
         let numColumna = posicionCasillero.x;
         let numCasilla = posicionCasillero.y;
-
+        
         //llamamos a cada una de las funciones encargadas de verificar cada direccion
-        //  this.verificarVertical(goal, jugador, numCasillero, numColumna);
-        //  this.verificarHorizontal(goal, jugador, numCasillero, numColumna);
 
         if (this.verificarDiagonalDerechaArriba(goal, jugador, numCasilla, numColumna)||
-        this.verificarDiagonalIzquierdaArriba(goal, jugador, numCasilla, numColumna)||
-        this.verificarDiagonalDerechaAbajo(goal, jugador, numCasilla, numColumna)||
-        this.verificarDiagonalIzquierdaAbajo(goal, jugador, numCasilla, numColumna)||
-        this.verificarVertical(goal, jugador, numCasilla, numColumna)||
-        this.verificarHorizontal(goal, jugador, numCasilla, numColumna) ) {
-            console.log("ganaste");
+            this.verificarDiagonalIzquierdaArriba(goal, jugador, numCasilla, numColumna)||
+            this.verificarDiagonalDerechaAbajo(goal, jugador, numCasilla, numColumna)||
+            this.verificarDiagonalIzquierdaAbajo(goal, jugador, numCasilla, numColumna)||
+            this.verificarVertical(goal, jugador, numCasilla, numColumna)||
+            this.verificarHorizontal(goal, jugador, numCasilla, numColumna)
+             ) {
+                return true;
         }
-
      
     }
+
 
 
     /////////////////////////////////////////////////
@@ -189,52 +157,25 @@ class Tablero {
     ////////////////////////////////////////////
     verificarVertical(goal, jugador, numCasillero, numColumna) {
         let contador = 0;
-        //primero hacia abajo
-        for (let i = 0; i <= goal - 1; i++) {
-
-            if (this.columnsMemory[numColumna][numCasillero + i].getContent() == jugador) {
-                contador += 1;
-                console.log(contador);
-            } else {
-                break;
+        for (let i = 1; i <= goal - 1; i++) {
+            if(numCasillero +i<this.getColumns()){
+                if (this.columnsMemory[numColumna][numCasillero + i].getContent() == jugador) {
+                    contador += 1;
+                    console.log(contador);
+                } else {
+                    break;
+                }
             }
         }
 
         //finalmente si el contador es igual al modo de juego seleccionado, se gana el juego
-        if (contador == goal) {
-            console.log("ganaste wachin");
+        if (contador == goal-1) {
+            return true;
 
         } else {
             return false;
         }
     }
-
-
-
-
-
-    /*verificarVertical(goal, jugador, numCasillero, numColumna){
-        let contador=0;
-        //primero hacia abajo
-        for(let i=0;i<=goal-1;i++){
-            console.log(this.columnsMemory[parseInt(numColumna)][parseInt(numCasillero)+1+i].getContent());
-            if(this.columnsMemory[parseInt(numColumna)][parseInt(numCasillero)+1+i].getContent()==jugador){
-                contador+=1;
-                console.log(contador);
-            }else{
-                break;
-            }
-        }
-        
-        //finalmente si el contador es igual al modo de juego seleccionado, se gana el juego
-        if(contador==goal){
-            console.log("ganaste wachin");
-
-        }else{
-            return false;
-        }
-    }
-*/
 
     /////////////////////////////////////////////////
     ///////////VERIFICADOR HORIZONTAL//////////////////////////
@@ -251,8 +192,8 @@ class Tablero {
         console.log("recuentoTotal " + recuentoTotal);
 
         //finalmente si el contador es igual al modo de juego seleccionado, se gana el juego
-        if (recuentoTotal >= goal) {
-            console.log("ganaste wachin");
+        if (recuentoTotal == goal) {
+            return true;
 
         } else {
             return false;
@@ -261,14 +202,15 @@ class Tablero {
 
     derecha(goal, jugador, numCasillero, numColumna) {
         let contador = 0;
-        for (let i = 0; i <= goal - 1; i++) {
-            if(numColumna + i<=this.getColumns()-1){
+        for (let i = 1; i <= goal - 1; i++) {
+            if((numColumna + i)<=this.getColumns()-1){
                 console.log(this.columnsMemory[numColumna + i][numCasillero].getSquareName())
                 if (this.columnsMemory[numColumna + i][numCasillero].getContent() == jugador) {
                     contador += 1;
+                }else{
+                    break;
                 }
             }
-            
         }
         return contador;
     }
@@ -300,12 +242,10 @@ class Tablero {
 
         //limites
 
-
-
-        for (let i = 0; i <= goal - 1; i++) {
-          if (numColumna + i < limiteX && numCasillero - i > limiteY) {
-       
-                if (this.columnsMemory[numColumna + i][numCasillero - i].getContent() == jugador) {
+        for (let i = 1; i <= goal - 1; i++) {
+          if ((numColumna + i < limiteX) && ((numCasillero - i )> limiteY)) {
+            console.log(this.columnsMemory[numColumna + i][numCasillero -i].getContent())
+                if (this.columnsMemory[numColumna + i][numCasillero -i].getContent() == jugador) {
                     contador += 1;
                     console.log(contador);
                 } else {
@@ -315,46 +255,13 @@ class Tablero {
         }
 
         //finalmente si el contador es igual al modo de juego seleccionado, se gana el juego
-        if (contador == goal) {
-            console.log("ganaste wachin");
+        if (contador == goal-1) {
+            return true;
 
         } else {
             return false;
         }
     }
-
-
-
-    /*verificarDiagonalDerechaArriba(goal, jugador, numCasillero, numColumna) {
-        let contador = 1;
-        let limiteX = this.getRows;
-        let limiteY = this.getColumns;
-
-
-        //banca q creo q ahi funcionaria
-        for (let i = 1; i <= goal - 1; i++) {
-            let proximaColumna = parseInt(numColumna) + i;
-            let proximaCasilla = parseInt(numCasillero) + 1 - i;
-            console.log((this.getColumns().length));
-            if (this.columnsMemory[proximaColumna][proximaCasilla].getContent() == jugador) {
-                contador += 1;
-                console.log(contador);
-            } else {
-                break;
-            }
-        }
-
-
-        //finalmente si el contador es igual al modo de juego seleccionado, se gana el juego
-        if (contador == goal) {
-            console.log("ganaste wachin");
-
-        } else {
-            return false;
-        }
-
-
-    }*/
 
     verificarDiagonalIzquierdaArriba(goal, jugador, numCasillero, numColumna) {
         let contador = 0;
@@ -363,12 +270,8 @@ class Tablero {
         let limiteY = 0;
 
         //dentro de los limites
-
-
-
         for (let i = 0; i <= goal - 1; i++) {
           if (numColumna - i >= limiteX && numCasillero - i >= limiteY) {
-       
                 if (this.columnsMemory[numColumna - i][numCasillero - i].getContent() == jugador) {
                     contador += 1;
                     console.log(contador);
@@ -376,51 +279,39 @@ class Tablero {
                     break;
                 }
           }
-
-
-
         }
-
         //finalmente si el contador es igual al modo de juego seleccionado, se gana el juego
         if (contador == goal) {
-            console.log("ganaste wachin");
+            return true;
 
         } else {
             return false;
         }
     }
 
-
-
     verificarDiagonalDerechaAbajo(goal, jugador, numCasillero, numColumna) {
         let contador = 0;
 
         let limiteX = this.getColumns();
         let limiteY = this.columnsMemory[numColumna].length;
-
-
+        
         //limites
 
-
         for (let i = 0; i <= goal - 1; i++) {
-          //  if (numColumna + i < limiteX && numCasillero + i <= limiteY) {
-          
+           if ((numColumna + i < limiteX) && ((numCasillero + i )<= limiteY-1)) {
                 if (this.columnsMemory[numColumna + i][numCasillero + i].getContent() == jugador) {
                     contador += 1;
                     console.log(contador);
                 } else {
                     break;
                 }
-           // }
+           }
 
 
         }
-
-
-
         //finalmente si el contador es igual al modo de juego seleccionado, se gana el juego
         if (contador == goal) {
-            console.log("ganaste wachin");
+            return true;
 
         } else {
             return false;
@@ -439,7 +330,7 @@ class Tablero {
 
 
         for (let i = 0; i <= goal - 1; i++) {
-           if (numColumna - i < limiteX && numCasillero + i <= limiteY) {
+           if (((numColumna - i) < limiteX) && ((numCasillero + i) <= limiteY-1)) {
    
                 if (this.columnsMemory[numColumna - i][numCasillero + i].getContent() == jugador) {
                     contador += 1;
@@ -450,11 +341,9 @@ class Tablero {
           }
 
         }
-
-
         //finalmente si el contador es igual al modo de juego seleccionado, se gana el juego
         if (contador == goal) {
-            console.log("ganaste wachin");
+            return true;
 
         } else {
             return false;

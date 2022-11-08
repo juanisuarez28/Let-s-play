@@ -374,23 +374,28 @@ label{
     .oculto{
         display: none;
     }
-
+    .bloque{
+        display: flex;
+    }
     .visible{
-
         margin-top: 5px;
         display: flex;
         align-items: center;
         justify-content: center
     }
 
+    .visible h1{
+        margin-left: 10px;
+    }
     .opciones{
         display: flex;    
-    
+        flex-direction: row;
     }
 
     select, .botonJugar{
         border-radius: 5px;
     }
+
 
     label{
         align-content: center;
