@@ -133,6 +133,8 @@
 nav{
     height: 50px;
     background-color: rgba(9, 15, 35, 1);
+    transition: all 0.4s ease;
+
 }
 
 .menu{
@@ -141,6 +143,19 @@ nav{
     height: 50px;
     justify-content: space-between;
     align-items: center;
+    transition: all 0.4s ease;
+
+}
+.sticky{
+    position: fixed;
+    top: 0;
+    height: 40px;
+    z-index: 20;
+    width: 100%;
+}
+
+.stickyLogo{
+    width: 60px;
 }
 
 .logo{
@@ -589,6 +604,19 @@ div .columnaRedes ul li img{
         height: 100px;
         width: 100px;
         margin-left: 5px;
+    }
+
+    .sticky{
+        position: fixed;
+        top: 0;
+        height: 60px;
+        z-index: 20;
+        width: 100%;
+    }
+    
+    .stickyLogo{
+        width: 90px;
+        height: 90px;
     }
     
     .menu-hambur{

@@ -13,3 +13,26 @@ labelHambur.addEventListener("click", () => {
         cross.style.animationName = "crossAppear";
     }, 0);
 })
+
+
+window.onscroll = function() {stickyHeader()};
+
+var header = document.querySelector(".header");
+
+var menu=document.querySelector(".menu")
+
+var logo=document.querySelector(".logo")
+
+var sticky = header.offsetTop;
+
+function stickyHeader() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+    menu.classList.add("sticky");
+    logo.classList.add("stickyLogo");
+  } else {
+    header.classList.remove("sticky");
+    menu.classList.add("sticky");
+    logo.classList.remove("stickyLogo");
+  }
+}
