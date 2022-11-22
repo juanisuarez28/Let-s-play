@@ -187,6 +187,38 @@ input:checked ~ .menu-hamburguesa{
 
 }
 
+#burguer{
+    min-width: 35px;
+    min-height: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor:pointer;
+    margin-right: 10px;
+}
+
+#burguer span{
+    border-radius: 5px;
+    background-color: rgba(73, 76, 78);
+    width: 100%;
+    height: 4px;
+    transition: all .5s ease-out;
+    margin-top: 5px;
+}
+
+#burguer.active .linea1{
+    opacity: 0;
+    width: 0;
+}
+
+#burguer.active .linea2{
+    transform:translateY(4.5px) rotate(45deg);
+}
+
+#burguer.active .linea3{
+    transform:translateY(-4px) rotate(-45deg);
+}
+
 .menu-hamburguesa{
     background-color: rgba(61, 71, 105, 1);
     width: 75%;
