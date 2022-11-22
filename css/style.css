@@ -161,6 +161,7 @@ nav{
 .logo{
     width: 70px;
     margin-left: 5px;
+    transition: all 0.4s ease;
 }
 
 .menu-hambur{
