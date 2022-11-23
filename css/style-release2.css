@@ -58,6 +58,23 @@ body{
     }
 }
 
+.sprite{
+    display: flex;
+    width:83px;
+    height: 119.75px;
+    background-image: url("../img/sprite.png") ;
+    align-self: center;
+    animation: spriteMovement 0.7s steps(3) infinite;
+}
+
+@keyframes spriteMovement{
+    0%{background-position-y: 0px;}
+    50%{background-position-y: -359.25px}
+    100%{background-position-y: -478,5px}
+}
+
+
+
 /*BARRA NAVEGADORA*/
 nav{
     height: 70px;
