@@ -226,7 +226,7 @@ input:checked ~ .menu-hamburguesa{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     z-index: 21;
     margin-top: 50px;
     align-self: flex-end;
@@ -240,6 +240,17 @@ input:checked ~ .menu-hamburguesa{
     margin-top: 2%;
     padding-bottom: 5%;
     border-bottom: 2px solid rgba(241, 233, 233, 1);
+    animation-name: aparecen;
+    animation-duration: 1s;
+}
+
+@keyframes aparecen {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
 }
 .menu-hamburguesa .opciones h1{
     color: rgba(241, 233, 233, 1);
@@ -249,6 +260,8 @@ input:checked ~ .menu-hamburguesa{
 
 .redesIcons{
     width: 100%;
+    animation-name: aparecen;
+    animation-duration: 1.5s;
 }
 
 
