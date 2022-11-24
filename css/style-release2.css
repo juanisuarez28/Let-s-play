@@ -47,6 +47,7 @@ body{
     left: 0;
     background-repeat: repeat-x;
     background-size: cover;
+    z-index: -1;
 }
 
 .layer1{
@@ -63,6 +64,31 @@ body{
     background-image: url("../img/paralax/layer3.png");
     animation: scroll 10s infinite linear;
 }
+
+.menu-hamburguesa+.environment div h1{
+   animation: destello 5s infinite;
+}
+
+@keyframes destello{
+    0%{opacity:1;color:white;}
+    30%{
+        opacity:0;
+        transform:translateY(4.5px) rotate(5deg);
+        color:white; 
+    }
+    40%{
+        transform: translateX(100px);
+        transform: scale(110%);
+        color:white; 
+    }
+    50%{color:red;}
+    60%{
+        opacity:1;
+        transform:translateY(4.5px) rotate(2deg);
+    }
+    100%{opacity:1;}
+}
+
 
 /*BARRA NAVEGADORA*/
 nav{
