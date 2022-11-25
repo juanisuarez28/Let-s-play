@@ -37,13 +37,28 @@ let cardsAnimadas = document.querySelectorAll(".cardAnimada");
 let carrusel = document.querySelector(".slider-container");
 let flag = 0;
 function mostrarAlScrollear(){
+  let longitud = cardsAnimadas.length;
   let ubicacionCarrusel = carrusel.offsetTop;
   let scrollTop = document.documentElement.scrollTop; //detecta lo que se scrolleo
-  cardsAnimadas.forEach(card => {
-    if(((ubicacionCarrusel - 500) < scrollTop)&&flag<4){
-      card.classList.add("cardVolando");
-      flag++;
+  for(let i = 0; i<longitud; i++) {
+    if(((ubicacionCarrusel - 500) < scrollTop)&& i<4){
+      switch(i){
+        case 0:
+          cardsAnimadas[i].classList.add("cardVolando1");
+          break;
+        case 1:
+          cardsAnimadas[i].classList.add("cardVolando2");
+          break;
+        case 2:
+          cardsAnimadas[i].classList.add("cardVolando3");
+          break;
+        case 3:
+          cardsAnimadas[i].classList.add("cardVolando4");
+          break;
+      }
+      
+      
     }
-  });
+  };
 
 }
