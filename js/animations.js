@@ -34,7 +34,7 @@ function stickyHeader() {
 }
 
 let cardsAnimadas = document.querySelectorAll(".cardAnimada");
-let carrusel = document.querySelector(".slider-container");
+let carrusel = document.querySelector(".seccion-personajes");
 let flag = 0;
 function mostrarAlScrollear(){
   let longitud = cardsAnimadas.length;

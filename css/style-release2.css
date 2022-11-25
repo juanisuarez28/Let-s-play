@@ -308,14 +308,14 @@ input:checked ~ .menu-hamburguesa{
 
 .shadow+.environment h1{
     margin-top: 10%;
-    margin-left: 0%;
+    margin-right: 10%;
     font-size: 1000%;
 }
 
 .contenido{
     display: flex;
     flex-direction: column;
-    align-content: space-around;
+    
     margin-left: 0%;
 }
 
@@ -324,14 +324,13 @@ input:checked ~ .menu-hamburguesa{
     text-align: center;
     font-size: 400%;
     color: rgba(191, 180, 180, 1);
-    margin-top: 10%;
+   
 }
 
 .contenido .facilitadores{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-top: 10%;
     margin-left: 10%;
 }
 
@@ -467,70 +466,64 @@ input:checked ~ .menu-hamburguesa{
 
 /*CONTENIDO, PERSONAJES*/
 
-.seccion-personajes {
+
+.contenido .seccion-personajes {
+    margin-top: 10%;
     font-size: 50%;
+    display: flex;
+    width: 70%;
+    height: 80%;
+    position: relative;
+    justify-content: space-around;
+    align-self: center;
 }
 
-.contenido h1 {
+.contenido .seccion-personajes div{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.contenido h1:first-child {
     align-self: flex-start;
     padding-left: 10%;
 }
 
-.seccion-personajes .slider-container {
-    display: flex;
-    flex-direction: row;
-    width: 70%;
-    height: 45vh;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    align-self: center;
-    scroll-snap-type: x mandatory;
-}
 
-.slider-container figure {
+.seccion-personajes figure {
+    margin-top: 10%;
     display: flex;
-    flex: 0 0 30%;
-    scroll-snap-align: center;
+    width: 70%;
+    height: 50%;
+    max-width: 200px;
     margin-right: 5%;
+    justify-content: space-around;
     position: relative;
-    justify-content: center;
-    
 }
 
 figure img {
-    
-    width: auto;
-    height: 100%;
+    width: 120%;
     object-fit: cover;
-   
-}
-
-figure .cardAnimada{
-    opacity:0;
-    transition: all 1s;
-    position: absolute;
-    
 }
 
 figure .cardVolando1{
-    animation: volando 3s forwards; 
+    animation: volando 1s forwards; 
 }
 figure .cardVolando2{
-    animation: volando 4s forwards; 
+    animation: volando 2s forwards; 
 }
 figure .cardVolando3{
-    animation: volando 5s forwards; 
+    animation: volando 3s forwards; 
 }
 figure .cardVolando4{
-    animation: volando 6s forwards; 
+    animation: volando 4s forwards; 
 }
-
-
 
 @keyframes volando{
     0%{
-        transform: translateX(-700px);
-        transform: translateY(500px);
+        transform: translateX(-1500px);
+        transform: translateY(2000px);
     }
     30%{
         opacity:0.5
@@ -550,7 +543,7 @@ figure .cardVolando4{
     }
 }
 
-figure .descripcion{
+.seccion-personajes figure .descripcion{
     opacity: 0;
     position: absolute;
     height: 100%;
@@ -573,7 +566,7 @@ figure .descripcion{
     bottom:10%;
 }
 
-.slider-container .descripcion:hover {
+.seccion-personajes .descripcion:hover {
     opacity: 1;
 }
 
