@@ -8,7 +8,10 @@ burguer.addEventListener('click', e=>{
 
 
 //Funcion header sticky
-window.onscroll = function() {stickyHeader()};
+window.onscroll = function() {
+  stickyHeader();
+  mostrarAlScrollear();
+};
 
 var header = document.querySelector(".header");
 
@@ -28,4 +31,19 @@ function stickyHeader() {
     menu.classList.add("sticky");
     logo.classList.remove("stickyLogo");
   }
+}
+
+let cardsAnimadas = document.querySelectorAll(".cardAnimada");
+let carrusel = document.querySelector(".slider-container");
+let flag = 0;
+function mostrarAlScrollear(){
+  let ubicacionCarrusel = carrusel.offsetTop;
+  let scrollTop = document.documentElement.scrollTop; //detecta lo que se scrolleo
+  cardsAnimadas.forEach(card => {
+    if(((ubicacionCarrusel - 500) < scrollTop)&&flag<4){
+      card.style.opacity = 1;
+      flag++;
+    }
+  });
+
 }
