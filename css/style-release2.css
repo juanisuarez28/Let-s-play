@@ -52,17 +52,17 @@ body{
 
 .layer1{
     background-image: url("../img/paralax/layer1.png");
-    animation: scroll 20s infinite linear;
+    animation: scroll 50s infinite linear;
 }
 
 .layer2{
     background-image: url("../img/paralax/layer2.png");
-    animation: scroll 15s infinite linear;
+    animation: scroll 25s infinite linear;
 }
 
 .layer3{
     background-image: url("../img/paralax/layer3.png");
-    animation: scroll 10s infinite linear;
+    animation: scroll 20s infinite linear;
 }
 
 .menu-hamburguesa+.environment div h1{
@@ -498,7 +498,7 @@ input:checked ~ .menu-hamburguesa{
 }
 
 figure img {
-
+    
     width: auto;
     height: 100%;
     object-fit: cover;
@@ -508,8 +508,32 @@ figure img {
 figure .cardAnimada{
     opacity:0;
     transition: all 1s;
+    position: absolute;
+    
 }
 
+figure .cardVolando{
+    animation: volando 3s forwards;
+    
+}
+
+@keyframes volando{
+    0%{
+        transform: translateX(-700px);
+        transform: translateY(500px);
+    }
+    30%{
+        opacity:0.5
+    }
+    70%{
+        transform: translateY(500px);
+        transform: translateX(-700px);
+        
+    }
+    100%{
+        opacity:1;
+    }
+}
 
 figure .descripcion{
     opacity: 0;

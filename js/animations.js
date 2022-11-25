@@ -41,7 +41,7 @@ function mostrarAlScrollear(){
   let scrollTop = document.documentElement.scrollTop; //detecta lo que se scrolleo
   cardsAnimadas.forEach(card => {
     if(((ubicacionCarrusel - 500) < scrollTop)&&flag<4){
-      card.style.opacity = 1;
+      card.classList.add("cardVolando");
       flag++;
     }
   });
