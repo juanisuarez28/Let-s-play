@@ -527,7 +527,7 @@ input:checked ~ .menu-hamburguesa{
 
 
 .seccion-personajes figure {
-    margin-top: 10%;
+    
     display: flex;
     width: 70%;
     height: 50%;
@@ -540,19 +540,20 @@ input:checked ~ .menu-hamburguesa{
 figure img {
     width: 120%;
     object-fit: cover;
+    opacity: 0;
 }
 
 figure .cardVolando1{
-    animation: volando 1s forwards; 
+    animation: volando .6s forwards; 
 }
 figure .cardVolando2{
-    animation: volando 2s forwards; 
+    animation: volando 1s forwards; 
 }
 figure .cardVolando3{
-    animation: volando 3s forwards; 
+    animation: volando 2s forwards; 
 }
 figure .cardVolando4{
-    animation: volando 4s forwards; 
+    animation: volando 3s forwards; 
 }
 
 @keyframes volando{

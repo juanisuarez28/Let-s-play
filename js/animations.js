@@ -41,7 +41,7 @@ function mostrarAlScrollear(){
   let ubicacionCarrusel = carrusel.offsetTop;
   let scrollTop = document.documentElement.scrollTop; //detecta lo que se scrolleo
   for(let i = 0; i<longitud; i++) {
-    if(((ubicacionCarrusel - 500) < scrollTop)&& i<4){
+    if(((ubicacionCarrusel +300) < scrollTop)&& i<4){
       switch(i){
         case 0:
           cardsAnimadas[i].classList.add("cardVolando1");
