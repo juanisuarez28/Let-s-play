@@ -464,6 +464,41 @@ input:checked ~ .menu-hamburguesa{
     left:95%;
 }
 
+
+/*CONTENIDO, HISTORIA*/
+
+.seccion-personajes .story-place{
+    display: flex;
+    flex-direction: row;
+}
+.story-place .story-image,.story-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1%;
+    display: flex;
+    width: 50%;
+    
+}
+.story-image img{
+    width: 90%;
+    border-radius: 10px;
+}
+
+.story-text .text1{
+    opacity: 1;
+}
+.story-text .text2{
+    margin-top: 20%;
+    opacity: 1;
+}
+.story-text .text3{
+    margin-top: 20%;
+    opacity: 1;
+}
+
+
+
 /*CONTENIDO, PERSONAJES*/
 
 
@@ -478,7 +513,7 @@ input:checked ~ .menu-hamburguesa{
     align-self: center;
 }
 
-.contenido .seccion-personajes div{
+.contenido .seccion-personajes .personajes{
     display: flex;
     flex-direction: row;
     width: 100%;
