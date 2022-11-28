@@ -32,7 +32,7 @@ body{
     100%{background-position-y: -478,5px}
 }
 
-
+    
 @keyframes scroll{
     0%{background-position-x: 0px;}
     100%{background-position-x: -1264px;}
@@ -242,14 +242,9 @@ input:checked ~ .menu-hamburguesa{
     background-position: left;
     font-size: 60%;
     z-index: -1;
-    
 }
 
-
-
 .environment div{
-    margin-top: 1%;
-    
     display: flex;
     flex-direction:column;
     justify-content: space-between;
@@ -258,10 +253,11 @@ input:checked ~ .menu-hamburguesa{
 
 .doomguyImage{
     position: relative;
+    top:0;
+    left:0;
     display: block;
     height: auto;
     width: 40%;
-    z-index: 2;
     object-fit: cover;
     filter: drop-shadow(6px -6px 7px rgba(144, 210, 2, 0.5));
 }

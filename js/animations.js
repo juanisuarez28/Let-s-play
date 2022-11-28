@@ -134,7 +134,7 @@ buttonDown.addEventListener("click", ()=>{
 })
 
 
-//TITULO PERSONAJES, ANIMACION CUANDO APARECE AL HACER SCROLL
+// TITULO PERSONAJES, ANIMACION CUANDO APARECE AL HACER SCROLL
 
 window.addEventListener('scroll', function()  {
   let element = document.getElementById('scrollTitle');
@@ -146,3 +146,6 @@ window.addEventListener('scroll', function()  {
       element.classList.remove('visible');
     }
 });
+
+
+
