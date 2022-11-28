@@ -65,29 +65,6 @@ body{
     animation: scroll 20s infinite linear;
 }
 
-.menu-hamburguesa+.environment div h1{
-   animation: destello 5s infinite;
-}
-
-/* @keyframes destello{
-    0%{opacity:1;color:white;}
-    30%{
-        opacity:0;
-        transform:translateY(4.5px) rotate(5deg);
-        color:white; 
-    }
-    40%{
-        transform: translateX(100px);
-        transform: scale(110%);
-        color:white; 
-    }
-    50%{color:red;}
-    60%{
-        opacity:1;
-        transform:translateY(4.5px) rotate(2deg);
-    }
-    100%{opacity:1;}
-} */
 
 
 /*BARRA NAVEGADORA*/
@@ -441,7 +418,7 @@ input:checked ~ .menu-hamburguesa{
     width: 5%;
     height: 15%;
     color: rgba(241, 233, 233, 1);
-    background-color: rgba(61, 71, 105, 1);
+    background-color: rgba(204, 46, 9, 1);
     border-radius: 90%;
     position: absolute;
     z-index: 2;

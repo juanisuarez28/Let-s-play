@@ -138,12 +138,15 @@ buttonDown.addEventListener("click", ()=>{
 
 window.addEventListener('scroll', function()  {
   let element = document.getElementById('scrollTitle');
+  let features=document.getElementById('featuresTitle');
   let screenSize = window.innerHeight;
   
     if(element.getBoundingClientRect().top < screenSize) {
       element.classList.add('visible');
+      features.classList.add('visible');
     } else {
       element.classList.remove('visible');
+      features.classList.remove('visible');
     }
 });
 
