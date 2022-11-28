@@ -132,3 +132,17 @@ buttonDown.addEventListener("click", ()=>{
       break;
   }
 })
+
+
+//TITULO PERSONAJES, ANIMACION CUANDO APARECE AL HACER SCROLL
+
+window.addEventListener('scroll', function()  {
+  let element = document.getElementById('scrollTitle');
+  let screenSize = window.innerHeight;
+  
+    if(element.getBoundingClientRect().top < screenSize) {
+      element.classList.add('visible');
+    } else {
+      element.classList.remove('visible');
+    }
+});
