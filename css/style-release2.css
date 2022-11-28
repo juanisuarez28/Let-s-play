@@ -467,10 +467,15 @@ input:checked ~ .menu-hamburguesa{
 
 /*CONTENIDO, HISTORIA*/
 
+/*CONTENIDO, HISTORIA*/
+
 .seccion-personajes .story-place{
     display: flex;
     flex-direction: row;
+    position:relative;
+    overflow-y: hidden;
 }
+
 .story-place .story-image,.story-text{
     display: flex;
     flex-direction: column;
@@ -478,26 +483,115 @@ input:checked ~ .menu-hamburguesa{
     padding: 1%;
     display: flex;
     width: 50%;
-    
+    font-size: 150%;
 }
 .story-image img{
     width: 90%;
     border-radius: 10px;
 }
 
+.story-place .story-image{
+    animation: imageMove 0.5s infinite;
+}
+
+@keyframes imageMove{
+    0%{
+        transform:translateX(10px);
+        
+    }
+    15%{
+        transform:translateY(-10px);
+    }
+    20%{
+        transform:translateX(-20px);
+    }
+    30%{
+        transform:translateY(-10px);
+    }
+    50%{
+        transform:translateX(-10px);
+    }
+    75%{
+        transform:translateY(-10px);
+    }
+    100%{
+        transform:translateX(-10px);
+    }
+}
+
+
 .story-text .text1{
+    margin-top: 5%;
     opacity: 1;
+    position:absolute;
 }
 .story-text .text2{
-    margin-top: 20%;
-    opacity: 1;
+    margin-top: 5%;
+    opacity: 0;
+    position:absolute;
 }
 .story-text .text3{
-    margin-top: 20%;
-    opacity: 1;
+    margin-top: 5%;
+    opacity: 0;
+    position:absolute;
+}
+.text1 h2:first-child{
+    font-size: 500%;
+    text-decoration: underline;
+}
+
+.story-place .buttonUp,.buttonDown {
+    background-color:orangered;
+    filter: drop-shadow(1px -1px 7px rgba(144, 228, 2, 0.5));
+    color: #0d091f;
+    height: 30px;
+    width: 30px;
+    align-self: center;
+    border-radius: 100%;
+    animation: buttons 1s infinite;
+}
+@keyframes buttons{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.5);
+    }
+    100%{
+        transform: scale(0.8);
+    }
 }
 
 
+.animarScroll{
+    animation: animarScroll 1s forwards;
+}
+.desanimarScroll{
+    animation: desanimarScroll 1s forwards;
+}
+@keyframes animarScroll{
+    0%{
+        opacity: 0;
+        transform:rotate(180deg);
+    }
+    100%{
+        opacity: 1;
+        transform:rotate(360deg);
+    }
+}
+@keyframes desanimarScroll{
+    0%{
+        opacity: 1;
+        transform: translateX(50px);
+    }
+    50%{
+        transform: translateX(400px);
+    }
+    100%{
+        opacity: 0;
+        transform: translateX(1000px);
+    }
+}
 
 /*CONTENIDO, PERSONAJES*/
 
@@ -512,7 +606,9 @@ input:checked ~ .menu-hamburguesa{
     justify-content: space-around;
     align-self: center;
 }
-
+::-webkit-scrollbar {
+    display: none;
+}
 .contenido .seccion-personajes .personajes{
     display: flex;
     flex-direction: row;
