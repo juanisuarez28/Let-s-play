@@ -402,9 +402,10 @@ input:checked ~ .menu-hamburguesa{
     justify-content: flex-start;
     align-content: center;
     transition: all .2s ease;
-    transform: translateX(0%);
-    animation-name: aparecenCards;
-    animation-duration: 1s;
+}
+
+.animacionCards{
+    animation: aparecenCards 1s forwards;
 }
 
 @keyframes aparecenCards {
@@ -464,8 +465,6 @@ input:checked ~ .menu-hamburguesa{
     left:95%;
 }
 
-
-/*CONTENIDO, HISTORIA*/
 
 /*CONTENIDO, HISTORIA*/
 
@@ -550,6 +549,7 @@ input:checked ~ .menu-hamburguesa{
     border-radius: 100%;
     animation: buttons 1s infinite;
 }
+
 @keyframes buttons{
     0%{
         transform: scale(1);
@@ -566,9 +566,11 @@ input:checked ~ .menu-hamburguesa{
 .animarScroll{
     animation: animarScroll 1s forwards;
 }
+
 .desanimarScroll{
     animation: desanimarScroll 1s forwards;
 }
+
 @keyframes animarScroll{
     0%{
         opacity: 0;
@@ -579,6 +581,7 @@ input:checked ~ .menu-hamburguesa{
         transform:rotate(360deg);
     }
 }
+
 @keyframes desanimarScroll{
     0%{
         opacity: 1;
